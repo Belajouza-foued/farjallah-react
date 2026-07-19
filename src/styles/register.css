@@ -1,0 +1,98 @@
+.register-page{
+    min-height:100vh;
+    background:#f5f7fb;
+    display:flex;
+    align-items:center;
+    padding:70px 0;
+}
+
+.register-box{
+    background:#fff;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.register-left{
+    background:linear-gradient(135deg,#1455D6,#0B2545);
+    color:#fff;
+    text-align:center;
+    padding:60px 40px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.register-left img{
+    width:80%;
+    margin:auto;
+    margin-bottom:30px;
+}
+
+.register-left h2{
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+.register-left p{
+    opacity:.9;
+}
+
+.register-right{
+    padding:50px;
+}
+
+.register-right h3{
+    color:#0B2545;
+    font-weight:700;
+}
+
+.register-right label{
+    font-weight:600;
+    margin-bottom:6px;
+}
+
+.register-right .form-control{
+    height:50px;
+    border-radius:10px;
+}
+
+.register-right .form-control:focus{
+    border-color:#1455D6;
+    box-shadow:none;
+}
+
+.register-btn{
+    background:#1455D6;
+    color:#fff;
+    height:52px;
+    border-radius:10px;
+    font-weight:600;
+}
+
+.register-btn:hover{
+    background:#0B2545;
+    color:white;
+}
+
+.login-link{
+    margin-left:8px;
+    color:#1455D6;
+    font-weight:600;
+    text-decoration:none;
+}
+
+.login-link:hover{
+    color:#0B2545;
+}
+
+@media(max-width:992px){
+
+.register-left{
+display:none;
+}
+
+.register-right{
+padding:35px;
+}
+
+}

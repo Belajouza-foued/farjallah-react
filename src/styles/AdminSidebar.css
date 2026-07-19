@@ -1,0 +1,220 @@
+/* ==========================================================================
+   Farjallah Auto — Admin Sidebar
+   Palette : Jaune #FFC400 · Bleu #0B3D91 · Bleu clair #1554C4 · Blanc
+   ========================================================================== */
+
+.admin-sidebar {
+  --jaune: #FFC400;
+  --bleu: #0B3D91;
+  --bleu-fonce: #082C6B;
+  --bleu-clair: #1554c4;
+  --blanc: #FFFFFF;
+
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  background: var(--bleu);
+  color: var(--blanc);
+  display: flex;
+  flex-direction: column;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  border-right: 4px solid var(--jaune);
+}
+
+/* ---------------------------------- */
+/* Brand                              */
+/* ---------------------------------- */
+
+.admin-sidebar__brand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 24px 20px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.admin-sidebar__logo-accent {
+  color: var(--jaune);
+}
+
+.admin-sidebar__close {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--blanc);
+  font-size: 1.3rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* ---------------------------------- */
+/* Nav links                          */
+/* ---------------------------------- */
+
+.admin-sidebar__nav {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 12px;
+}
+
+.admin-sidebar__nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.admin-sidebar__link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  color: #d7e2f7;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-left: 3px solid transparent;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.admin-sidebar__link i {
+  width: 20px;
+  text-align: center;
+  color: var(--jaune);
+  font-size: 1rem;
+}
+
+.admin-sidebar__link:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--blanc);
+}
+
+.admin-sidebar__link.is-active {
+  background: var(--bleu-clair);
+  color: var(--blanc);
+  border-left-color: var(--jaune);
+  font-weight: 600;
+}
+
+/* ---------------------------------- */
+/* Logout                             */
+/* ---------------------------------- */
+
+.admin-sidebar__logout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 16px;
+  padding: 12px;
+  background: var(--jaune);
+  color: var(--bleu);
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.admin-sidebar__logout:hover {
+  background: #ffd542;
+  transform: translateY(-1px);
+}
+
+/* ---------------------------------- */
+/* Mobile top bar + toggle button     */
+/* ---------------------------------- */
+
+.admin-sidebar__topbar {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bleu);
+  color: var(--blanc);
+  padding: 14px 18px;
+  border-bottom: 4px solid var(--jaune);
+  position: sticky;
+  top: 0;
+  z-index: 1001;
+}
+
+.admin-sidebar__topbar-title {
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.admin-sidebar__toggle {
+  background: none;
+  border: none;
+  color: var(--blanc);
+  font-size: 1.3rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* ---------------------------------- */
+/* Overlay (mobile)                   */
+/* ---------------------------------- */
+
+.admin-sidebar__overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 44, 107, 0.5);
+  z-index: 1000;
+}
+
+.admin-sidebar__overlay.is-visible {
+  display: block;
+}
+
+/* ---------------------------------- */
+/* Responsive                         */
+/* ---------------------------------- */
+
+@media (max-width: 900px) {
+
+  .admin-sidebar__topbar {
+    display: flex;
+  }
+
+  .admin-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 78%;
+    max-width: 300px;
+    height: 100vh;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1002;
+    border-right: none;
+    box-shadow: 4px 0 18px rgba(0, 0, 0, 0.25);
+  }
+
+  .admin-sidebar.is-open {
+    transform: translateX(0);
+  }
+
+  .admin-sidebar__close {
+    display: block;
+  }
+}
+
+@media (max-width: 380px) {
+  .admin-sidebar {
+    width: 86%;
+  }
+
+  .admin-sidebar__topbar-title {
+    font-size: 0.95rem;
+  }
+}

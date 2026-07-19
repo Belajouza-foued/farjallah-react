@@ -1,0 +1,58 @@
+.ref-hero {
+  /* The original markup set color:white with no background, which made the
+     heading invisible against the page. Giving it the navy brand color fixes
+     that and doubles as a section divider. */
+  background: var(--navy);
+  color: var(--white);
+  padding: 56px 20px;
+}
+
+.ref-hero h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(24px, 3.5vw, 34px);
+  margin: 0;
+}
+
+.oil-refs {
+  padding: 60px 20px;
+  background: var(--white);
+}
+
+.logo-card {
+  background: var(--white);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 110px;
+  transition: 0.3s ease;
+}
+
+.logo-card img {
+  max-width: 100%;
+  max-height: 55px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: 0.3s ease;
+}
+
+.logo-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.logo-card:hover img {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+@media (max-width: 480px) {
+  .logo-card {
+    height: 90px;
+    padding: 14px;
+  }
+}

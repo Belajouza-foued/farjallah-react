@@ -1,0 +1,71 @@
+.brands-section {
+  padding: 70px 20px;
+  background: #f8f9fa;
+}
+
+.brands-section h2 {
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.brand-slider {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.brand-track {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  width: max-content;
+  animation: scrollBrands 22s linear infinite;
+}
+
+.brand-track img {
+  width: 130px;
+  height: 90px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.75;
+  transition: 0.3s ease;
+}
+
+.brand-track img:hover {
+  transform: scale(1.12);
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+@keyframes scrollBrands {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .brands-section {
+    padding: 50px 16px;
+  }
+
+  .brand-track img {
+    width: 100px;
+    height: 70px;
+  }
+
+  .brand-track {
+    gap: 28px;
+    animation-duration: 16s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-track {
+    animation: none;
+  }
+}

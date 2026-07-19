@@ -1,0 +1,245 @@
+/* ==========================================================================
+   Farjallah Auto — Panier
+   Palette : Jaune #FFC400 · Bleu #0B3D91 · Bleu clair #1554C4 · Blanc
+   ========================================================================== */
+
+.cart-page {
+  --jaune: #FFC400;
+  --bleu: #0B3D91;
+  --bleu-clair: #1554c4;
+  --blanc: #FFFFFF;
+  --gris-fond: #F4F6F9;
+  --gris-bordure: #E3E8F0;
+  --gris-texte: #5b6472;
+
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: var(--bleu);
+}
+
+/* ---------------------------------- */
+/* Title                              */
+/* ---------------------------------- */
+
+.cart-title {
+  color: var(--bleu);
+  font-weight: 700;
+  font-size: 1.8rem;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.cart-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 64px;
+  height: 4px;
+  background: var(--jaune);
+  border-radius: 4px;
+}
+
+/* ---------------------------------- */
+/* Cart item card                     */
+/* ---------------------------------- */
+
+.cart-card {
+  background: var(--blanc);
+  border: 1px solid var(--gris-bordure);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 3px 12px rgba(11, 61, 145, 0.06);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.cart-card:hover {
+  box-shadow: 0 8px 20px rgba(11, 61, 145, 0.12);
+  border-color: var(--bleu-clair);
+}
+
+.cart-card h5 {
+  color: var(--bleu);
+  font-weight: 600;
+  font-size: 1.02rem;
+}
+
+.cart-image {
+  width: 100%;
+  max-width: 110px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid var(--gris-bordure);
+}
+
+.cart-card .badge.bg-success {
+  background-color: #E4F7EA !important;
+  color: #1C8A44 !important;
+  font-weight: 600;
+  font-size: 0.72rem;
+  padding: 5px 10px;
+}
+
+/* ---------------------------------- */
+/* Quantity control                   */
+/* ---------------------------------- */
+
+.cart-qty .btn-outline-secondary {
+  border-color: var(--bleu-clair);
+  color: var(--bleu-clair);
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.cart-qty .btn-outline-secondary:hover {
+  background: var(--bleu-clair);
+  color: var(--blanc);
+}
+
+.cart-qty .fw-bold {
+  color: var(--bleu);
+  min-width: 18px;
+  text-align: center;
+}
+
+/* ---------------------------------- */
+/* Remove button                      */
+/* ---------------------------------- */
+
+.cart-card .btn-outline-danger {
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* ---------------------------------- */
+/* Empty cart alert                   */
+/* ---------------------------------- */
+
+.cart-page .alert-info {
+  background: #E9EFFB;
+  color: var(--bleu);
+  border: 1px solid #cfdcf5;
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+/* ---------------------------------- */
+/* Summary panel                      */
+/* ---------------------------------- */
+
+.cart-summary {
+  background: var(--bleu);
+  color: var(--blanc);
+  border-radius: 16px;
+  padding: 28px 26px;
+  position: sticky;
+  top: 20px;
+  box-shadow: 0 18px 40px -20px rgba(11, 61, 145, 0.5);
+}
+
+.cart-summary h4 {
+  color: var(--blanc);
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.cart-summary h4::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 48px;
+  height: 3px;
+  background: var(--jaune);
+  border-radius: 4px;
+}
+
+.cart-summary span,
+.cart-summary strong {
+  color: #d7e2f7;
+  font-size: 0.95rem;
+}
+
+.cart-summary strong {
+  color: var(--blanc);
+}
+
+.cart-summary hr {
+  border-color: rgba(255, 255, 255, 0.2);
+  opacity: 1;
+}
+
+.cart-summary h5 {
+  color: var(--blanc);
+  font-weight: 700;
+}
+
+.cart-summary .btn-success {
+  background: var(--jaune);
+  border: none;
+  color: var(--bleu);
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 12px;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.cart-summary .btn-success:hover {
+  background: #ffd542;
+  color: var(--bleu);
+  transform: translateY(-1px);
+}
+
+/* ---------------------------------- */
+/* Responsive                         */
+/* ---------------------------------- */
+
+@media (max-width: 992px) {
+
+  .cart-summary {
+    position: static;
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .cart-title {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+
+  .cart-card .row > div {
+    text-align: center !important;
+    margin-bottom: 12px;
+  }
+
+  .cart-image {
+    max-width: 90px;
+    height: 80px;
+    margin: 0 auto;
+  }
+
+  .cart-card .col-md-2.text-end,
+  .cart-card .col-md-2.text-center {
+    text-align: center !important;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .cart-card {
+    padding: 16px;
+  }
+
+  .cart-summary {
+    padding: 22px 18px;
+  }
+}

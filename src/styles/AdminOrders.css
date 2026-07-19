@@ -1,0 +1,260 @@
+/* ==========================================================================
+   Farjallah Auto — Admin Orders
+   Palette : Jaune #FFC400 · Bleu #0B3D91 · Bleu clair #1554C4 · Blanc
+   ========================================================================== */
+
+.admin-orders {
+  --jaune: #FFC400;
+  --bleu: #0B3D91;
+  --bleu-clair: #1554c4;
+  --blanc: #FFFFFF;
+  --gris-fond: #F4F6F9;
+  --gris-bordure: #E3E8F0;
+  --gris-texte: #5b6472;
+
+  background: var(--gris-fond);
+  min-height: 100vh;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: var(--bleu);
+}
+
+/* ---------------------------------- */
+/* Header                             */
+/* ---------------------------------- */
+
+.admin-orders__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.admin-orders__title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--bleu);
+  margin: 0;
+}
+
+.admin-orders__title-icon {
+  font-size: 1.4rem;
+}
+
+.admin-orders__count {
+  background: var(--jaune);
+  color: var(--bleu);
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+
+/* ---------------------------------- */
+/* Alert                              */
+/* ---------------------------------- */
+
+.ao-alert {
+  background: #FDECEC;
+  color: #B3261E;
+  border: 1px solid #F5C2C0;
+  padding: 12px 16px;
+  border-radius: 10px;
+  margin-bottom: 18px;
+  font-size: 0.9rem;
+}
+
+/* ---------------------------------- */
+/* Table wrapper (scroll on mobile)   */
+/* ---------------------------------- */
+
+.admin-orders__table-wrap {
+  background: var(--blanc);
+  border-radius: 14px;
+  overflow-x: auto;
+  box-shadow: 0 4px 16px rgba(11, 61, 145, 0.08);
+  border: 1px solid var(--gris-bordure);
+}
+
+.admin-orders__table {
+  margin: 0;
+  min-width: 960px;
+}
+
+.admin-orders__table thead th {
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  padding: 16px 14px;
+  white-space: nowrap;
+}
+
+.admin-orders__table tbody td {
+  padding: 14px;
+  vertical-align: middle;
+  font-size: 0.9rem;
+  color: var(--bleu);
+  border-bottom: 1px solid var(--gris-bordure);
+}
+
+.admin-orders__table tbody tr:hover {
+  background: #F7FAFF;
+}
+
+.admin-orders__table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.admin-orders__empty {
+  text-align: center;
+  padding: 40px 20px !important;
+  color: var(--gris-texte);
+  font-size: 0.95rem;
+}
+
+/* ---------------------------------- */
+/* Product cell                       */
+/* ---------------------------------- */
+
+.admin-orders__product {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.admin-orders__product:last-child {
+  margin-bottom: 0;
+}
+
+.admin-orders__product-img {
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid var(--gris-bordure);
+  flex-shrink: 0;
+}
+
+.admin-orders__qty {
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.admin-orders__qty:last-child {
+  margin-bottom: 0;
+}
+
+.admin-orders__total {
+  font-weight: 700;
+  color: var(--bleu);
+  white-space: nowrap;
+}
+
+/* ---------------------------------- */
+/* Badges                             */
+/* ---------------------------------- */
+
+.ao-badge {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 0.02em;
+}
+
+.ao-badge--success {
+  background: #E4F7EA;
+  color: #1C8A44;
+}
+
+.ao-badge--danger {
+  background: #FDECEC;
+  color: #B3261E;
+}
+
+.ao-badge--warning {
+  background: #FFF4D6;
+  color: #B5790A;
+}
+
+.ao-badge--info {
+  background: #E9EFFB;
+  color: var(--bleu-clair);
+}
+
+/* ---------------------------------- */
+/* Select (change status)             */
+/* ---------------------------------- */
+
+.admin-orders__select {
+  min-width: 130px;
+  font-size: 0.85rem;
+  border: 1px solid var(--gris-bordure);
+  border-radius: 8px;
+  padding: 8px 30px 8px 10px;
+  color: var(--bleu);
+  background-color: var(--blanc);
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.admin-orders__select:focus {
+  outline: none;
+  border-color: var(--bleu-clair);
+  box-shadow: 0 0 0 3px rgba(21, 84, 196, 0.15);
+}
+
+/* ---------------------------------- */
+/* Voir button                        */
+/* ---------------------------------- */
+
+.admin-orders__btn-view {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: none;
+  background: var(--jaune);
+  color: var(--bleu);
+  font-weight: 600;
+  font-size: 0.82rem;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+  white-space: nowrap;
+}
+
+.admin-orders__btn-view:hover {
+  background: #ffd542;
+  transform: translateY(-1px);
+}
+
+.admin-orders__btn-view:active {
+  transform: translateY(0);
+}
+
+/* ---------------------------------- */
+/* Responsive                         */
+/* ---------------------------------- */
+
+@media (max-width: 768px) {
+  .admin-orders__title {
+    font-size: 1.3rem;
+  }
+
+  .admin-orders__table thead th,
+  .admin-orders__table tbody td {
+    padding: 10px 12px;
+    font-size: 0.82rem;
+  }
+
+  .admin-orders__select {
+    min-width: 110px;
+  }
+}

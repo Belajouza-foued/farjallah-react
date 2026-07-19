@@ -1,0 +1,81 @@
+.paint-section {
+  position: relative;
+  padding: 100px 0;
+  background: url('../../assets/images/tolier.jpg') center center / cover no-repeat fixed;
+}
+
+.paint-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(11, 37, 69, 0.6);
+}
+
+.paint-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+.section-title {
+  text-align: center;
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 2.5rem);
+  margin-bottom: 15px;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #f1f1f1;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.paint-card {
+  background: var(--white);
+  border-radius: 15px;
+  overflow: hidden;
+  text-align: center;
+  padding: 20px;
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.paint-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
+}
+
+.paint-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.paint-card h3 {
+  margin-bottom: 8px;
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.paint-card p {
+  font-size: 14px;
+  color: #444;
+  margin: 0;
+}
+
+@media (max-width: 992px) {
+  .paint-section {
+    padding: 80px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  /* background-attachment: fixed is unreliable on iOS Safari and causes
+     jank on Android; fall back to scroll on smaller/touch screens. */
+  .paint-section {
+    background-attachment: scroll;
+    padding: 64px 0;
+  }
+}

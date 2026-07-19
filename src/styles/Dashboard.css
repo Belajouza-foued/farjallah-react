@@ -1,0 +1,60 @@
+.dashboard-card{
+    border:none;
+    border-radius:18px;
+    padding:25px;
+    color:#fff;
+    transition:.3s;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.dashboard-card:hover{
+    transform:translateY(-6px);
+}
+.card-color {
+    background-color: #1554c4;
+}
+
+.card-blue{
+    background:#1455D6;
+}
+
+.card-yellow{
+    background:#FFC107;
+    color:#222;
+}
+
+.card-navy{
+    background:#0B2545;
+}
+
+.card-white{
+    background:#fff;
+    color:#222;
+    border:1px solid #ececec;
+}
+
+.dashboard-icon{
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.dashboard-card h2{
+    font-size:34px;
+    font-weight:700;
+}
+.dashboard-card h4{
+    font-size:24px;
+    font-weight:700;
+    color: #FFC107 !important;
+}
+
+.dashboard-card p{
+    margin:0;
+    font-size:16px;
+}
+.strong-dash {
+    color: #222;
+}
+.span-dash {
+    color: #1455D6;
+}

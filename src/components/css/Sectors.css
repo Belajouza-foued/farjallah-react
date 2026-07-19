@@ -1,0 +1,120 @@
+.sector-section {
+  background: #f4f6f9;
+}
+
+.sector-section h2 {
+  font-size: clamp(28px, 4vw, 40px);
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.sector-section p {
+  color: var(--ink-soft);
+}
+
+.sector-card {
+  position: relative;
+  background: var(--white);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  height: 100%;
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+.sector-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 32px rgba(11, 37, 69, 0.14);
+}
+
+.sector-bg {
+  text-align: center;
+  padding: 20px;
+}
+
+.sector-bg img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  transition: transform 0.5s ease;
+}
+
+.sector-card:hover .sector-bg img {
+  transform: scale(1.08);
+}
+
+.sector-content {
+  text-align: center;
+  padding: 0 20px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sector-content a {
+  margin-bottom: 20px;
+  color: var(--blue);
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.sector-content a:hover {
+  color: var(--dark);
+}
+
+.sector-btn {
+  border: none;
+  padding: 10px 24px;
+  background: var(--yellow-deep);
+  color: var(--white);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.sector-btn:hover {
+  background: var(--dark);
+}
+
+.sector-details {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+  width: 100%;
+}
+
+.sector-details.is-open {
+  grid-template-rows: 1fr;
+  margin-top: 16px;
+}
+
+.sector-details > p {
+  overflow: hidden;
+}
+
+.sector-text {
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: var(--navy);
+  font-weight: 500;
+  margin: 0;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .sector-text {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .sector-btn {
+    width: 140px;
+  }
+}

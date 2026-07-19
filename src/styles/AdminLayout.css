@@ -1,0 +1,41 @@
+.admin-layout{
+    min-height:100vh;
+    background:#f5f7fb;
+}
+
+
+.admin-layout-sidebar{
+
+    min-height:100vh;
+
+}
+
+
+.admin-layout-content{
+
+    padding:25px;
+
+}
+
+
+
+/* TABLETTE + MOBILE */
+
+@media(max-width:991px){
+
+    .admin-layout-sidebar{
+
+        width:100%;
+        min-height:auto;
+
+    }
+
+
+    .admin-layout-content{
+
+        width:100%;
+        padding:15px;
+
+    }
+
+}

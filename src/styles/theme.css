@@ -1,0 +1,29 @@
+/* ==========================================================================
+   Farjallah Auto — Design tokens
+   Import once (e.g. in index.js / App.jsx) so every component can use these
+   CSS variables without redeclaring :root.
+   ========================================================================== */
+
+:root {
+  --navy: #0B2545;
+  --blue: #003DA5;
+  --blue-light: #1455D6;
+  --blue-soft: #E7EFFD;
+  --yellow: #FFD400;
+  --yellow-deep: #F2A900;
+  --white: #FFFFFF;
+  --paper: #F5F7FB;
+  --ink-soft: #5B6B85;
+  --dark: #111827;
+  --gray: #f4f4f4;
+  --radius: 16px;
+
+  --font-display: 'Oswald', sans-serif;
+  --font-body: 'Work Sans', 'Jost', sans-serif;
+}
+
+.container-narrow {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+}

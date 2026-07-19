@@ -1,0 +1,149 @@
+/* ==========================================================================
+   Farjallah Auto — Ajouter un produit
+   Palette : Jaune #FFC400 · Bleu #0B3D91 · Bleu clair #1554C4 · Blanc
+   ========================================================================== */
+
+.add-product {
+  --jaune: #FFC400;
+  --bleu: #0B3D91;
+  --bleu-clair: #1554c4;
+  --blanc: #FFFFFF;
+  --gris-fond: #F4F6F9;
+  --gris-bordure: #E3E8F0;
+  --gris-texte: #5b6472;
+
+  background: var(--gris-fond);
+  min-height: 100vh;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* ---------------------------------- */
+/* Title                              */
+/* ---------------------------------- */
+
+.add-product__title {
+  color: var(--bleu);
+  font-weight: 700;
+  font-size: 1.5rem;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.add-product__title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 56px;
+  height: 4px;
+  background: var(--jaune);
+  border-radius: 4px;
+}
+
+/* ---------------------------------- */
+/* Form card                          */
+/* ---------------------------------- */
+
+.add-product__form {
+  background: var(--blanc);
+  border: 1px solid var(--gris-bordure);
+  border-radius: 16px;
+  padding: 28px 26px;
+  max-width: 780px;
+  box-shadow: 0 4px 16px rgba(11, 61, 145, 0.06);
+}
+
+.add-product__form .form-label {
+  color: var(--bleu);
+  font-weight: 600;
+  font-size: 0.88rem;
+  margin-bottom: 6px;
+}
+
+.add-product__form .form-control,
+.add-product__form .form-select {
+  border: 1px solid var(--gris-bordure);
+  border-radius: 9px;
+  padding: 10px 12px;
+  font-size: 0.9rem;
+  color: var(--bleu);
+  background-color: var(--blanc);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.add-product__form .form-control:focus,
+.add-product__form .form-select:focus {
+  outline: none;
+  border-color: var(--bleu-clair);
+  box-shadow: 0 0 0 3px rgba(21, 84, 196, 0.15);
+}
+
+.add-product__form textarea.form-control {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.add-product__form input[type="file"].form-control {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+/* ---------------------------------- */
+/* Submit button                      */
+/* ---------------------------------- */
+
+.add-product__submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: var(--jaune);
+  color: var(--bleu);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 12px 28px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.add-product__submit:hover {
+  background: #ffd542;
+  transform: translateY(-1px);
+}
+
+.add-product__submit:active {
+  transform: translateY(0);
+}
+
+/* ---------------------------------- */
+/* Responsive                         */
+/* ---------------------------------- */
+
+@media (max-width: 768px) {
+
+  .add-product__title {
+    font-size: 1.25rem;
+  }
+
+  .add-product__form {
+    padding: 20px 18px;
+    border-radius: 12px;
+  }
+
+  .add-product__submit {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .add-product__form {
+    padding: 16px 14px;
+  }
+
+  .add-product__form .form-control,
+  .add-product__form .form-select {
+    font-size: 0.85rem;
+  }
+}
