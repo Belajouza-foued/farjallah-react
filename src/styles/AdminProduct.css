@@ -1,0 +1,282 @@
+/* =========================
+   ADMIN PRODUCTS PAGE
+========================= */
+
+.admin-products {
+    background: #f5f7fb;
+    min-height: 100vh;
+}
+
+
+/* TITLE */
+
+.admin-products h2 {
+    font-weight: 700;
+    color: #0b2545;
+}
+
+
+/* SEARCH BOX */
+
+.admin-search {
+    max-width: 450px;
+    margin-bottom: 25px;
+}
+
+.admin-search .input-group-text {
+    background: #0b2545;
+    color: white;
+    border: none;
+}
+
+.admin-search input {
+    border-radius: 0 8px 8px 0;
+    height: 45px;
+}
+
+.admin-search input:focus {
+    border-color: #1455d6;
+    box-shadow: 0 0 0 0.2rem rgba(20,85,214,.15);
+}
+
+
+/* TABLE CARD */
+
+.products-table-wrapper {
+
+    background:white;
+    border-radius:15px;
+    padding:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+
+.table {
+
+    margin-bottom:0;
+
+}
+
+
+.table thead th {
+
+    background:#0b2545;
+    color:white;
+    font-size:14px;
+    text-transform:uppercase;
+    padding:15px;
+
+}
+
+
+.table tbody td {
+
+    vertical-align:middle;
+    padding:15px;
+
+}
+
+
+.table tbody tr:hover {
+
+    background:#f1f5ff;
+
+}
+
+
+/* PRODUCT IMAGE */
+
+.table img {
+
+    border-radius:10px;
+    object-fit:cover;
+    border:1px solid #ddd;
+
+}
+
+
+
+/* CATEGORY */
+
+.table td:nth-child(5){
+
+    color:#1455d6;
+    font-weight:600;
+
+}
+
+
+/* STOCK */
+
+.table td:nth-child(6){
+
+    font-weight:700;
+
+}
+
+
+/* BUTTONS */
+
+.btn-danger {
+
+    background:#dc3545;
+    border:none;
+    padding:6px 14px;
+    border-radius:8px;
+
+}
+
+
+.btn-warning {
+
+    background:#ffc107;
+    border:none;
+    padding:6px 14px;
+    border-radius:8px;
+
+}
+
+
+.btn-danger:hover {
+
+    opacity:.85;
+
+}
+
+
+.btn-warning:hover {
+
+    opacity:.85;
+
+}
+
+
+
+/* =========================
+   MODAL EDIT
+========================= */
+
+
+.modal {
+
+    backdrop-filter:blur(3px);
+
+}
+
+
+.modal-dialog {
+
+    max-width:500px;
+
+}
+
+
+.modal-content {
+
+    border-radius:15px;
+    border:none;
+    box-shadow:0 20px 40px rgba(0,0,0,.25);
+
+}
+
+
+.modal-content h4 {
+
+    color:#0b2545;
+    font-weight:700;
+
+}
+
+
+.modal-content input {
+
+    height:45px;
+    border-radius:8px;
+
+}
+
+
+.modal-content input:focus {
+
+    border-color:#1455d6;
+    box-shadow:none;
+
+}
+
+
+/* IMAGE PREVIEW */
+
+.modal-content img {
+
+    object-fit:cover;
+    border-radius:10px;
+
+}
+
+
+
+/* SAVE BUTTON */
+
+.btn-success {
+
+    background:#198754;
+    border:none;
+    border-radius:8px;
+    padding:8px 20px;
+
+}
+
+
+
+/* =========================
+ MOBILE
+========================= */
+
+@media(max-width:768px){
+
+
+.table-responsive {
+
+    overflow-x:auto;
+
+}
+
+
+.admin-products h2 {
+
+    font-size:22px;
+
+}
+
+
+.table {
+
+    font-size:13px;
+
+}
+
+
+.table img {
+
+    width:45px;
+    height:45px;
+
+}
+
+
+.btn {
+
+    margin-bottom:5px;
+
+}
+
+
+.modal-dialog {
+
+    margin:20px;
+
+}
+
+
+}

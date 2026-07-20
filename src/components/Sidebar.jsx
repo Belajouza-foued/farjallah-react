@@ -1,16 +1,16 @@
-
 import React from "react";
-import "./css/Sidebar.css";
+import "../components/css/Sidebar.css";
+import { Link } from "react-router-dom";
 
 const categories = [
   "Filtres",
   "Moteurs",
   "Amortisseur",
-  "embrayage",
-  "huiles",
-  "freinage",
+  "Embrayage",
+  "Huiles",
+  "Freinage",
   "Suspension",
-  "eclairage",
+  "Éclairage",
   "Batteries",
 ];
 
@@ -18,9 +18,7 @@ const Sidebar = ({ isOpen, onClose, activeCategory, onSelectCategory }) => {
   return (
     <>
       {/* Overlay mobile */}
-      {isOpen && (
-        <div className="sidebar-overlay" onClick={onClose}></div>
-      )}
+      {isOpen && <div className="sidebar-overlay" onClick={onClose}></div>}
 
       <aside className={`sidebar ${isOpen ? "sidebar--open" : ""}`}>
         <div className="sidebar__header">
@@ -42,24 +40,32 @@ const Sidebar = ({ isOpen, onClose, activeCategory, onSelectCategory }) => {
               Toutes les catégories
             </li>
 
-            {categories.map((cat) => (
-              <li
-                key={cat}
-                className={`sidebar__item ${
-                  activeCategory === cat ? "is-active" : ""
-                }`}
-                onClick={() => onSelectCategory(cat)}
-              >
-                {cat}
-              </li>
-            ))}
+            {categories.map((cat) => {
+              const slug = cat.toLowerCase();
+              const isActive = activeCategory === slug;
+
+              return (
+                <li
+                  key={cat}
+                  className={`sidebar__item ${isActive ? "is-active" : ""}`}
+                >
+                  <Link
+                    to={`/categorie/${slug}`}
+                    className="sidebar__link"
+                    onClick={onClose}
+                  >
+                    {cat}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
 
         <div className="sidebar__section">
           <h4 className="sidebar__section-title">Disponibilité</h4>
           <ul className="sidebar__list">
-            <li className="sidebar__item">
+            <li className="sidebar__item sidebar__item--checkbox">
               <input type="checkbox" id="inStock" />
               <label htmlFor="inStock">En stock</label>
             </li>

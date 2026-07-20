@@ -1,5 +1,6 @@
 import { useEffect, useState, useCallback } from "react";
-import AdminSidebar from "../components/AdminSidebar";
+import Sidebar from "../components/Sidebar";
+import '../styles/AdminProduct.css'
 import api from "../api/axios";
 function AdminProducts() {
 
@@ -124,11 +125,11 @@ useEffect(() => {
 
     return (
 
-        <div className="container-fluid">
+        <div className="container-fluid admin-products">
             <div className="row">
-<div className="row mb-4">
+<div className="row">
 
-    <div className="col-md-5">
+    <div className="col-md-5 pt-3">
 
         <div className="input-group">
 
@@ -152,8 +153,8 @@ useEffect(() => {
 
 </div>
                 {/* SIDEBAR */}
-                <div className="col-md-2 p-0">
-                    <AdminSidebar />
+                <div className="col-md-2 pt-5">
+                    <Sidebar />
                 </div>
 
                 {/* CONTENT */}
@@ -163,7 +164,7 @@ useEffect(() => {
 
                     {/* DEBUG (à enlever après) */}
                     {/* <pre>{JSON.stringify(products, null, 2)}</pre> */}
-
+<div className="products-table-wrapper">
                     <table className="table table-striped table-hover">
 
                         <thead className="table-dark">
@@ -232,6 +233,7 @@ useEffect(() => {
                         </tbody>
 
                     </table>
+                    </div>
 
                     {/* ================= MODAL EDIT ================= */}
                     {editingProduct && (
