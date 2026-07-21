@@ -20,12 +20,15 @@ import Home from "./pages/Home";
 import CategoryProducts from "./pages/CategoryProducts";
 import ProductDetails from "./pages/ProductDetails";
 import Ser from "./pages/ProductDetails";
+import Services from "./components/ServicesPage";
+import TopBar from "./components/TopBar";
 
 
 function App() {
   return (
     <BrowserRouter>
      <CartProvider>
+      <TopBar/>
      <Navbar />
 
       <Routes>
@@ -48,6 +51,7 @@ function App() {
             <Route path="/admin/orders/:id" element={<OrderDetails />}/>
              <Route path="/product/:id" element={<AdminStockDetails/>} />
            <Route path="/Dashboard" element={<Dashboard />}/>
+                <Route path="/services" element={<Services />}/>
            <Route 
   path="/categorie/:slug" 
   element={<CategoryProducts />}

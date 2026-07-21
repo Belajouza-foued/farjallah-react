@@ -1,5 +1,6 @@
 import { useState } from "react";
 import carImage from "../assets/images/car-2.jpg";
+import api from "../api/axios";
 import "./css/ContactSection.css";
 
 const SUBJECTS = [
@@ -44,20 +45,51 @@ function ContactSection() {
     setForm((prev) => ({ ...prev, [field]: event.target.value }));
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const validationErrors = validate(form);
-    setErrors(validationErrors);
-    if (Object.keys(validationErrors).length > 0) return;
+const handleSubmit = async (event) => {
+  event.preventDefault();
+
+  const validationErrors = validate(form);
+  setErrors(validationErrors);
+
+  if (Object.keys(validationErrors).length > 0) return;
+
+  try {
 
     setSending(true);
-    // Simulated submission — wire this up to your backend / email service.
-    setTimeout(() => {
-      setSending(false);
-      setSent(true);
-      setForm(INITIAL_FORM);
-    }, 900);
-  };
+
+    const res = await api.post("/contact", {
+      firstName: form.prenom,
+      lastName: form.nom,
+      email: form.email,
+      phone: form.tel,
+      subject: form.sujet,
+      message: form.message,
+    });
+
+    setSent(true);
+
+    setForm(INITIAL_FORM);
+
+    console.log("CONTACT SUCCESS:", res.data);
+
+  } catch (err) {
+
+    console.log(
+      "CONTACT ERROR:",
+      err.response?.data || err.message
+    );
+
+    alert(
+      err.response?.data?.message ||
+      "Erreur lors de l'envoi du message"
+    );
+
+  } finally {
+
+    setSending(false);
+
+  }
+};
 
   return (
     <>
@@ -118,10 +150,10 @@ function ContactSection() {
                           <input
                             type="text"
                             id="cNom"
-                            placeholder="Votre nom"
+                    placeholder="Votre nom"
                             className={errors.nom ? "invalid" : ""}
                             value={form.nom}
-                            onChange={handleChange("nom")}
+    onChange={handleChange("nom")}
                           />
                           <span className="f-error">{errors.nom}</span>
                         </div>

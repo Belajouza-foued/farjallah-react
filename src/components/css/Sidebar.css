@@ -12,8 +12,7 @@
     border: 1px solid #E2E5EA;
     border-radius: 14px;
     padding: 18px;
-      top: 90px;
-   
+    line-height: 1px;
 }
 
 .sidebar__header{
@@ -36,11 +35,11 @@
 }
 
 .sidebar__section-title{
-    font-size: 11px;
+    font-size: 18px !important;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: .6px;
-    color: #9AA3B0;
+    color: #2e5fa4 !important;
     margin: 0 0 10px;
     padding-bottom: 8px;
     border-bottom: 1px solid #F0F1F4;
@@ -55,18 +54,15 @@
     gap: 3px;
 }
 
-/* Item — état par défaut ("Toutes les catégories") */
+/* Item */
 .sidebar__item{
     display: flex;
     align-items: center;
     gap: 8px;
-
     border-radius: 8px;
-
     font-size: 13.5px;
     color: #0B2545;
     cursor: pointer;
-
     transition: background .2s ease, color .2s ease;
 }
 
@@ -75,12 +71,13 @@
 }
 
 .sidebar__item.is-active{
-    background: #0B2545;
+    background: #1455D6 !important;
     color: #fff;
-    font-weight: 600;
+    height: 30px;
+      font-weight: 600;
 }
 
-/* Item "Toutes les catégories" — pas de lien, padding direct */
+/* "Toutes les catégories" — pas de <Link>, padding direct sur le li */
 .sidebar__list > li:first-child{
     padding: 10px 12px;
 }
@@ -94,6 +91,7 @@
     text-decoration: none;
     font-weight: inherit;
     border-radius: 8px;
+    font-size: 15px;
 }
 
 .sidebar__item.is-active .sidebar__link{
@@ -172,7 +170,6 @@
         height: 100vh;
         width: 280px;
         max-width: 80vw;
-
         border-radius: 0;
         border: none;
 

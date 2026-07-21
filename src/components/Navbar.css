@@ -17,9 +17,12 @@
 /* ---------------------------------- */
 /* Shell                              */
 /* ---------------------------------- */
-
+* {
+    box-sizing: border-box;
+}
 .site-navbar {
   position: sticky;
+  padding: 25px;
   top: 0;
   z-index: 1000;
   background: var(--nav-blue);
@@ -55,8 +58,8 @@
 }
 
 .logo-img {
-  width: 56px;
-  height: 56px;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
   border: 1px solid var(--nav-yellow);
   background-color: var(--nav-white);
@@ -478,8 +481,7 @@
     overflow: hidden;
     z-index: 999;
     transition: max-height 0.3s ease;
-    border-bottom: 3px solid var(--nav-yellow);
-  }
+    }
 
   .site-navbar__menu.is-open {
     max-height: calc(100vh - var(--nav-height));
@@ -619,4 +621,151 @@
   .site-navbar__dropdown-panel {
     grid-template-columns: 1fr;
   }
+}
+
+/*topbar*/
+.top-bar{
+    background: #0B2545;
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+    font-size: 13px;
+}
+
+.top-bar__container{
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 8px 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* ===== Left group ===== */
+.top-bar__left{
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    flex-wrap: wrap;
+}
+
+.top-bar__item{
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #B9C6E0;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color .2s ease;
+}
+
+.top-bar__item i{
+    font-size: 13px;
+    color: #FFD400;
+}
+
+.top-bar__item--link:hover{
+    color: #FFD400;
+}
+
+.top-bar__item--highlight{
+    color: #FFD400;
+    font-weight: 600;
+}
+
+.top-bar__item--highlight i{
+    color: #FFD400;
+}
+
+/* ===== Right group (social) ===== */
+.top-bar__right{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.top-bar__social{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .08);
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    transition: background .2s ease, color .2s ease, transform .2s ease;
+}
+
+.top-bar__social:hover{
+    background: #FFD400;
+    color: #0B2545;
+    transform: translateY(-2px);
+}
+
+.top-bar__social--whatsapp:hover{
+    background: #25D366;
+    color: #fff;
+}
+
+/* ===== Responsive ===== */
+
+/* Tablette : garde l'essentiel, cache l'email (souvent long) */
+@media (max-width: 992px){
+    .top-bar__container{
+        padding: 8px 20px;
+    }
+
+    .top-bar__left{
+        gap: 16px;
+    }
+
+    .top-bar__item:nth-child(3){
+        display: none; /* email masqué */
+    }
+}
+
+/* Mobile : ne garde que le message livraison + réseaux sociaux */
+@media (max-width: 768px){
+    .top-bar__container{
+        padding: 7px 16px;
+    }
+
+    .top-bar__left{
+        gap: 0;
+    }
+
+    .top-bar__item:nth-child(2),
+    .top-bar__item:nth-child(3),
+    .top-bar__item:nth-child(4){
+        display: none; /* région, email, téléphone masqués */
+    }
+
+    .top-bar__item--highlight{
+        font-size: 12px;
+    }
+
+    .top-bar__item--highlight span,
+    .top-bar__item--highlight{
+        white-space: normal;
+    }
+}
+
+/* Très petit mobile : message livraison raccourci visuellement */
+@media (max-width: 400px){
+    .top-bar__item--highlight{
+        font-size: 11px;
+    }
+
+    .top-bar__social{
+        width: 26px;
+        height: 26px;
+        font-size: 12px;
+    }
+
+    .top-bar__right{
+        gap: 8px;
+    }
 }

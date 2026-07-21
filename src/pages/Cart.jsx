@@ -289,7 +289,7 @@ const handleOrder = async () => {
 
           </div>
 
-       <button onClick={handleOrder}>
+       <button className="btn-command" onClick={handleOrder}>
   Commander
 </button>
 
