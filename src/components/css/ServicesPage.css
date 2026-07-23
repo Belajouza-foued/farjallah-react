@@ -288,7 +288,7 @@
 
 .sp-badge{
   position: absolute;
-  top: 24px;
+  top: 10px;
   right: 24px;
   font-family: var(--font-display);
   font-size: 11px;

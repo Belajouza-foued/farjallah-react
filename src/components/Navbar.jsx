@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
-import logoImage from "../assets/images/ihab-new (2).png"
+import logoImage from "../assets/images/ihab-new-1.webp"
 import "./Navbar.css";
 const CATEGORIES = [
 
@@ -138,10 +138,7 @@ useEffect(() => {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-  const closeDropdown = () => {
-  setCatOpen(false);
-  closeMenu();
-};
+ 
   useEffect(() => {
 
   const handleClickOutside = (event) => {

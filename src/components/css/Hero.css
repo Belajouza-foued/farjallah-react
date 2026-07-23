@@ -76,6 +76,7 @@
   border-radius: 999px;
   text-decoration: none;
   font-weight: 700;
+  font-size: 15px;
   box-shadow: 0 4px 0 var(--yellow-deep);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -104,6 +105,7 @@
   background: rgba(255, 255, 255, 0.45);
   cursor: pointer;
   transition: 0.25s ease;
+  padding: 0;
 }
 
 .hero-dot.is-active {
@@ -112,19 +114,121 @@
   border-radius: 999px;
 }
 
+/* Zone de clic élargie sans agrandir le point visuellement */
+.hero-dot{
+  position: relative;
+}
+
+.hero-dot::after{
+  content: "";
+  position: absolute;
+  inset: -10px;
+}
+
+/* ===== Responsive ===== */
+
+/* Tablette */
 @media (max-width: 992px) {
   .hero {
     min-height: 420px;
   }
+
+  .hero-content {
+    max-width: 560px;
+  }
 }
 
+/* Mobile large */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 400px;
+  }
+
+  .hero-content h1 {
+    margin-bottom: 12px;
+  }
+
+  .hero-content p {
+    margin-bottom: 20px;
+  }
+
+  .hero-dots {
+    bottom: 18px;
+    gap: 8px;
+  }
+
+  .hero-dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .hero-dot.is-active {
+    width: 22px;
+  }
+}
+
+/* Mobile */
 @media (max-width: 480px) {
   .hero {
     min-height: 380px;
   }
 
+  .hero-content {
+    width: 92%;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(22px, 6vw, 32px);
+  }
+
+  .hero-content p {
+    font-size: clamp(13px, 3.5vw, 16px);
+  }
+
   .hero-btn {
-    padding: 10px 24px;
-    font-size: 14px;
+    padding: 11px 26px;
+    font-size: 13.5px;
+  }
+}
+
+/* Très petit mobile */
+@media (max-width: 360px) {
+  .hero {
+    min-height: 340px;
+  }
+
+  .hero-content h1 {
+    font-size: 20px;
+  }
+
+  .hero-dots {
+    bottom: 14px;
+  }
+}
+
+/* Mode paysage mobile — hauteur très réduite */
+@media (max-height: 480px) and (orientation: landscape) {
+  .hero {
+    min-height: 320px;
+    max-height: 100dvh;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(18px, 4vw, 26px);
+    margin-bottom: 8px;
+  }
+
+  .hero-content p {
+    font-size: 13px;
+    margin-bottom: 14px;
+  }
+
+  .hero-btn {
+    padding: 8px 20px;
+    font-size: 13px;
+  }
+
+  .hero-dots {
+    bottom: 10px;
   }
 }

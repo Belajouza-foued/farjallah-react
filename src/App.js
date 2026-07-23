@@ -19,9 +19,9 @@ import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import CategoryProducts from "./pages/CategoryProducts";
 import ProductDetails from "./pages/ProductDetails";
-import Ser from "./pages/ProductDetails";
 import Services from "./components/ServicesPage";
 import TopBar from "./components/TopBar";
+import Footer from "./components/Footer";
 
 
 function App() {
@@ -51,13 +51,14 @@ function App() {
             <Route path="/admin/orders/:id" element={<OrderDetails />}/>
              <Route path="/product/:id" element={<AdminStockDetails/>} />
            <Route path="/Dashboard" element={<Dashboard />}/>
+           <Route path="/products/:id" element={<ProductDetails />} />
                 <Route path="/services" element={<Services />}/>
            <Route 
   path="/categorie/:slug" 
   element={<CategoryProducts />}
-/>
-           
+/>          
      </Routes>
+       <Footer />
      </CartProvider>
     </BrowserRouter>
   );

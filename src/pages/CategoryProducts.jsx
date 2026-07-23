@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState,useCallback } from "react";
 import api from "../api/axios";
 import '../styles/CategoryProducts.css'
 import { Link } from "react-router-dom";
@@ -9,18 +9,27 @@ function CategoryProducts() {
 
   const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    loadProducts();
-  }, [slug]);
 
-  const loadProducts = async () => {
-    try {
-      const res = await api.get(`/products?category=${slug}`);
-      setProducts(res.data.products);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+
+const loadProducts = useCallback(async () => {
+  try {
+
+    const res = await api.get(`/products?category=${slug}`);
+
+    setProducts(res.data.products);
+
+  } catch (err) {
+
+    console.log(err);
+
+  }
+
+}, [slug]);
+useEffect(() => {
+
+  loadProducts();
+
+}, [loadProducts]);
 
   return (
     <div className="container py-5">
@@ -70,11 +79,11 @@ function CategoryProducts() {
       <p className="product-card__ref">Réf: {product.sku}</p>
 
       <Link
-        to={`/product/${product._id}`}
-        className="product-card__btn mt-auto"
-      >
-        Voir le produit
-      </Link>
+  to={`/products/${product._id}`}
+  className="product-card__btn mt-auto"
+>
+  Voir le produit
+</Link>
     </div>
   </div>
 </div>

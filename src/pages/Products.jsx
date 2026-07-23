@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useCallback } from "react";
 import api from "../api/axios";
 import { useCart } from "../context/CartContext";
 import { useSearchParams } from "react-router-dom";
@@ -22,25 +22,39 @@ const Products = () => {
   // =========================
   // GET PRODUCTS
   // =========================
-  const getProducts = async () => {
-    try {
-      setLoading(true);
-      const res = await api.get(
-        `/products?search=${search}${
-          activeCategory ? `&category=${activeCategory}` : ""
-        }`
-      );
-      setProducts(res.data.products);
-    } catch (err) {
-      console.log(err);
-    } finally {
-      setLoading(false);
-    }
-  };
+const getProducts = useCallback(async () => {
 
-  useEffect(() => {
-    getProducts();
-  }, [search, activeCategory]);
+  try {
+
+    setLoading(true);
+
+    const res = await api.get(
+      `/products?search=${search}${
+        activeCategory ? `&category=${activeCategory}` : ""
+      }`
+    );
+
+    setProducts(res.data.products);
+
+
+  } catch (err) {
+
+    console.log(err);
+
+
+  } finally {
+
+    setLoading(false);
+
+  }
+
+}, [search, activeCategory]);
+
+useEffect(() => {
+
+  getProducts();
+
+}, [getProducts]);
 
   // =========================
   // SEARCH SUBMIT
