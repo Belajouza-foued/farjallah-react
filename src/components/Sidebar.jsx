@@ -1,17 +1,39 @@
 import React from "react";
-import "../components/css/Sidebar.css";
+import "./css/Sidebar.css";
 import { Link } from "react-router-dom";
 
+const CATEGORY_ICONS = {
+  filtre: "fa-solid fa-filter",
+  moteurs: "fa-solid fa-car",
+  amortisseur: "fa-solid fa-truck-fast",
+  embrayage: "fa-solid fa-gears",
+  huiles: "fa-solid fa-oil-can",
+  freinage: "fa-solid fa-car-burst",
+  suspension: "fa-solid fa-truck-fast",
+  eclairage: "fa-solid fa-lightbulb",
+  batterie: "fa-solid fa-car-battery",
+  refroidissement: "fa-solid fa-snowflake",
+  transmission: "fa-solid fa-gear",
+  direction: "fa-solid fa-road",
+  peinture: "fa-solid fa-spray-can-sparkles",
+  echappement: "fa-solid fa-wind",
+};
+
 const categories = [
-  "Filtres",
-  "Moteurs",
-  "Amortisseur",
-  "Embrayage",
-  "Huiles",
-  "Freinage",
-  "Suspension",
-  "Éclairage",
-  "Batteries",
+  { name: "Filtres", slug: "filtre" },
+  { name: "Moteurs", slug: "moteurs" },
+  { name: "Amortisseur", slug: "amortisseur" },
+  { name: "Embrayage", slug: "embrayage" },
+  { name: "Huiles", slug: "huiles" },
+  { name: "Freinage", slug: "freinage" },
+  { name: "Suspension", slug: "suspension" },
+  { name: "Éclairage", slug: "eclairage" },
+  { name: "Batterie", slug: "batterie" },
+  { name: "Refroidissement", slug: "refroidissement" },
+  { name: "Transmission", slug: "transmission" },
+  { name: "Direction", slug: "direction" },
+  { name: "Peinture", slug: "peinture" },
+  { name: "Échappement", slug: "echappement" },
 ];
 
 const Sidebar = ({ isOpen, onClose, activeCategory, onSelectCategory }) => {
@@ -21,6 +43,7 @@ const Sidebar = ({ isOpen, onClose, activeCategory, onSelectCategory }) => {
       {isOpen && <div className="sidebar-overlay" onClick={onClose}></div>}
 
       <aside className={`sidebar ${isOpen ? "sidebar--open" : ""}`}>
+
         <div className="sidebar__header">
           <h3 className="sidebar__title">Filtres</h3>
           <button className="sidebar__close" onClick={onClose}>
@@ -28,42 +51,40 @@ const Sidebar = ({ isOpen, onClose, activeCategory, onSelectCategory }) => {
           </button>
         </div>
 
+        {/* Catégories */}
         <div className="sidebar__section">
           <h4 className="sidebar__section-title">Catégories</h4>
+
           <ul className="sidebar__list">
-            <li
-              className={`sidebar__item ${
-                !activeCategory ? "is-active" : ""
-              }`}
-              onClick={() => onSelectCategory(null)}
-            >
-              Toutes les catégories
+            <li className={`sidebar__item ${!activeCategory ? "is-active" : ""}`}>
+              <Link to="/products" className="sidebar__link" onClick={onClose}>
+                <i className="fa-solid fa-border-all"></i>
+                <span>Catégories</span>
+              </Link>
             </li>
 
-            {categories.map((cat) => {
-              const slug = cat.toLowerCase();
-              const isActive = activeCategory === slug;
-
-              return (
-                <li
-                  key={cat}
-                  className={`sidebar__item ${isActive ? "is-active" : ""}`}
+            {categories.map((cat) => (
+              <li
+                key={cat.slug}
+                className={`sidebar__item ${activeCategory === cat.slug ? "is-active" : ""}`}
+              >
+                <Link
+                  to={`/categorie/${cat.slug}`}
+                  className="sidebar__link"
+                  onClick={onClose}
                 >
-                  <Link
-                    to={`/categorie/${slug}`}
-                    className="sidebar__link"
-                    onClick={onClose}
-                  >
-                    {cat}
-                  </Link>
-                </li>
-              );
-            })}
+                  <i className={CATEGORY_ICONS[cat.slug]}></i>
+                  <span>{cat.name}</span>
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
 
+        {/* Disponibilité */}
         <div className="sidebar__section">
           <h4 className="sidebar__section-title">Disponibilité</h4>
+
           <ul className="sidebar__list">
             <li className="sidebar__item sidebar__item--checkbox">
               <input type="checkbox" id="inStock" />
@@ -71,6 +92,7 @@ const Sidebar = ({ isOpen, onClose, activeCategory, onSelectCategory }) => {
             </li>
           </ul>
         </div>
+
       </aside>
     </>
   );

@@ -5,8 +5,6 @@ import logoImage from "../assets/images/ihab-new-1.webp"
 import "./Navbar.css";
 const CATEGORIES = [
 
- 
-
   {
     slug: "huiles",
     label: "Huiles",

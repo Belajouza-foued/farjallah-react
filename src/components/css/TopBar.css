@@ -1,84 +1,161 @@
 .top-bar{
-    background:#FFD400;
-    color:#0B2545;
-    font-size:14px;
+    background: #FFD400;
+    color: #0B2545;
+    font-size: 14px;
 }
 
 .top-bar__container{
-    max-width:1280px;
-    margin:auto;
-    padding:8px 20px;
+    max-width: 1280px;
+    margin: auto;
+    padding: 6px 10px;
 
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .top-bar__left,
 .top-bar__right{
-    display:flex;
-    align-items:center;
-    gap:18px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
 }
 
 .top-bar__item{
-    display:flex;
-    align-items:center;
-    gap:6px;
-    color:#0B2545 !important;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #0B2545;
+    white-space: nowrap;
 }
 
 .top-bar__item--link{
-    color:#0B2545;
-    text-decoration:none;
-    transition:.3s;
+    color: #0B2545;
+    text-decoration: none;
+    transition: color .25s ease;
 }
 
 .top-bar__item--link:hover{
-    color:white !important;
+    color: #003DA5;
 }
 
 .top-bar__social{
-    width:34px;
-    height:34px;
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    border-radius:50%;
-    background: blue;
+    border-radius: 50%;
+    background: #0B2545;
 
-    color: white !important;
-    text-decoration:none;
+    color: #FFD400;
+    text-decoration: none;
 
-    transition:.3s;
+    transition: background .25s ease, color .25s ease, transform .2s ease;
 }
 
 .top-bar__social:hover{
-    background:#003DA5;
-    color:white;
+    background: #003DA5;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.top-bar__social--whatsapp:hover{
+    background: #25D366;
+    color: #fff;
 }
 
 .top-bar i{
-    font-size:15px;
-}
-@media(max-width:768px){
-
-.top-bar__container{
-    flex-direction:column;
-    text-align:center;
+    font-size: 15px;
 }
 
-.top-bar__left{
-    flex-wrap:wrap;
-    justify-content:center;
+/* ===== Responsive ===== */
+
+/* Tablette */
+@media (max-width: 992px){
+    .top-bar__container{
+        padding: 8px 16px;
+        gap: 8px;
+    }
+
+    .top-bar__left{
+        gap: 14px;
+    }
 }
 
-.top-bar__right{
-    justify-content:center;
+/* Mobile large — passe en colonne */
+@media (max-width: 768px){
+    .top-bar{
+        font-size: 13px;
+    }
+
+    .top-bar__container{
+        flex-direction: column;
+        text-align: center;
+        padding: 10px 16px;
+    }
+
+    .top-bar__left{
+        flex-wrap: wrap;
+        justify-content: start;
+        gap: 10px 16px;
+    }
+
+    .top-bar__right{
+        justify-content: start;
+        position: relative;
+       
+    }
+    .top-bar__item {
+        justify-content: center;
+        color: #fff;
+               font-size: 10px;
+                position: relative;
+       right: 10px;
+    }
 }
 
+/* Mobile — réduit encore, priorise l'essentiel */
+@media (max-width: 480px){
+    .top-bar{
+        font-size: 12px;
+    }
+
+    .top-bar__left{
+        gap: 8px 12px;
+    }
+
+    .top-bar__social{
+        width: 25px;
+        height: 25px;
+    }
+
+    .top-bar i{
+        font-size: 13px;
+    }
+}
+
+/* Très petit mobile — n'affiche que l'essentiel */
+@media (max-width: 380px){
+    .top-bar__container{
+        padding: 8px 12px;
+    }
+
+    /* Masque les items secondaires, garde le principal (livraison) + réseaux sociaux */
+    .top-bar__item:nth-child(2),
+    .top-bar__item:nth-child(3),
+    .top-bar__item:nth-child(4){
+        display: none;
+    }
+
+    .top-bar__social{
+        width: 28px;
+        height: 28px;
+    }
 }
