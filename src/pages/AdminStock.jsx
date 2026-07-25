@@ -1,4 +1,4 @@
-import {useEffect,useState} from "react";
+import {useEffect,useState,useCallback} from "react";
 import api from "../api/axios";
 import {useNavigate} from "react-router-dom";
 
@@ -10,26 +10,19 @@ const token=localStorage.getItem("token");
 const navigate = useNavigate();
 
 
-useEffect(()=>{
-
-getStock();
-
-},[]);
-
-
-const getStock = async()=>{
+const getStock = useCallback(async()=>{
 
 try{
 
-const res = await api.get("/admin/stock",
+
+const res = await api.get(
+"/admin/stock",
 {
 headers:{
 Authorization:`Bearer ${token}`
 }
-});
-
-
-console.log("RESULT STOCK :", res.data);
+}
+);
 
 
 setProducts(res.data);
@@ -38,13 +31,23 @@ setProducts(res.data);
 }catch(err){
 
 console.log(
-"ERREUR STOCK :",
 err.response?.data || err.message
 );
 
 }
 
-};
+
+},[token]);
+
+
+
+useEffect(()=>{
+
+getStock();
+
+},[getStock]);
+
+
 
 
 return(

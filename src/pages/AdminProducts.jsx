@@ -13,29 +13,49 @@ const [search, setSearch] = useState("");
     // =========================
     // GET PRODUCTS
     // =========================
-    const fetchProducts = useCallback(async () => {
-        try {
+   const fetchProducts = useCallback(async () => {
 
-            const res = await api.get("/admin/products", {
-                headers: {
-                    Authorization: `Bearer ${token}`
+    try {
+
+        const res = await api.get(
+            `/admin/products?search=${search}`,
+            {
+                headers:{
+                    Authorization:`Bearer ${token}`
                 }
-            });
+            }
+        );
 
-            console.log("ADMIN PRODUCTS:", res.data);
 
-            // SAFE FORMAT
-            setProducts(res.data.products || res.data || []);
+        console.log(
+            "ADMIN PRODUCTS:",
+            res.data
+        );
 
-        } catch (err) {
-            console.log("ERROR FETCH:", err.response?.data || err.message);
-        }
-    }, [token]);
 
-    useEffect(() => {
-        fetchProducts();
-    }, [fetchProducts]);
+        setProducts(
+            res.data.products || res.data || []
+        );
 
+
+    } catch(err){
+
+        console.log(
+            "ERROR FETCH:",
+            err.response?.data || err.message
+        );
+
+    }
+
+}, [token, search]);
+
+
+
+useEffect(()=>{
+
+    fetchProducts();
+
+},[fetchProducts]);
     // =========================
     // DELETE PRODUCT
     // =========================
@@ -100,28 +120,7 @@ const [search, setSearch] = useState("");
             console.log("UPDATE ERROR:", err.response?.data || err.message);
         }
     };
-   const getProducts = async () => {
-
-    try{
-
-        const res = await api.get(
-            `/products?search=${search}`
-        );
-
-        setProducts(res.data.products);
-
-    }catch(err){
-
-        console.log(err);
-
-    }
-
-};
-useEffect(() => {
-
-    getProducts();
-
-}, [search]);
+  
 
     return (
 
