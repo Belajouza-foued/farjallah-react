@@ -13,17 +13,12 @@ const [search, setSearch] = useState("");
     // =========================
     // GET PRODUCTS
     // =========================
-   const fetchProducts = useCallback(async () => {
+ const fetchProducts = useCallback(async () => {
 
     try {
 
         const res = await api.get(
-            `/admin/products?search=${search}`,
-            {
-                headers:{
-                    Authorization:`Bearer ${token}`
-                }
-            }
+            `/products?search=${search}`
         );
 
 
@@ -34,11 +29,11 @@ const [search, setSearch] = useState("");
 
 
         setProducts(
-            res.data.products || res.data || []
+            res.data.products || []
         );
 
 
-    } catch(err){
+    } catch(err) {
 
         console.log(
             "ERROR FETCH:",
@@ -47,7 +42,8 @@ const [search, setSearch] = useState("");
 
     }
 
-}, [token, search]);
+
+}, [search]);
 
 
 
