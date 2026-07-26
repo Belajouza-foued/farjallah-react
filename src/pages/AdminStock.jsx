@@ -8,8 +8,6 @@ const [products,setProducts]=useState([]);
 
 const token=localStorage.getItem("token");
 const navigate = useNavigate();
-
-
 const getStock = useCallback(async()=>{
 
 try{
@@ -23,19 +21,13 @@ Authorization:`Bearer ${token}`
 }
 }
 );
-
-
 setProducts(res.data);
 
-
 }catch(err){
-
 console.log(
 err.response?.data || err.message
 );
-
 }
-
 
 },[token]);
 
