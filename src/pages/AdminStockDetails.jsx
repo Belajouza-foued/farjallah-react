@@ -47,15 +47,7 @@ useEffect(()=>{
 
 },[getProduct]);
 
-  useEffect(()=>{
-
-    getProduct();
-
-},[getProduct]);
-
-
-
-
+  
     const updateStock = async()=>{
 
         try{
