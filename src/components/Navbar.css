@@ -714,6 +714,17 @@
   .top-bar__item--highlight{
     font-size: 12px;
   }
+   .site-navbar__dropdown-panel {
+        gap: 15px;
+    }
+
+
+    .site-navbar__dropdown-item {
+        padding: 0px 5px;
+        font-size: 10px;
+        gap: 2px;
+       
+    }
 }
 
 @media (max-width: 480px) {

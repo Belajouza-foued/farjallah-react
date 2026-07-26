@@ -238,7 +238,7 @@ useEffect(() => {
 
   <button
     type="button"
-    className={`site-navbar__link site-navbar__dropdown-toggle ${
+    className={`pb-3 mb-2 site-navbar__link site-navbar__dropdown-toggle ${
       catOpen ? "is-active" : ""
     }`}
     onClick={() => {

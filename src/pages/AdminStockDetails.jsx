@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState,useCallback } from "react";
 import { useParams } from "react-router-dom";
 import api from "../api/axios";
 
@@ -11,41 +11,48 @@ function AdminStockDetails(){
     const [stock,setStock] = useState("");
 
     const token = localStorage.getItem("token");
+const getProduct = useCallback(async()=>{
 
+    try{
 
-    useEffect(()=>{
-
-        getProduct();
-
-    },[]);
-
-
-
-    const getProduct = async()=>{
-
-        try{
-
-            const res = await api.get(
-                `/admin/stock/${id}`,
-                {
-                    headers:{
-                        Authorization:`Bearer ${token}`
-                    }
+        const res = await api.get(
+            `/admin/stock/${id}`,
+            {
+                headers:{
+                    Authorization:`Bearer ${token}`
                 }
-            );
+            }
+        );
 
 
-            setProduct(res.data);
-            setStock(res.data.stock);
+        setProduct(res.data);
+        setStock(res.data.stock);
 
 
-        }catch(err){
+    }catch(err){
 
-            console.log(err);
+        console.log(
+            err.response?.data || err.message
+        );
 
-        }
+    }
 
-    };
+
+},[id, token]);
+
+
+useEffect(()=>{
+
+    getProduct();
+
+},[getProduct]);
+
+  useEffect(()=>{
+
+    getProduct();
+
+},[getProduct]);
+
 
 
 
