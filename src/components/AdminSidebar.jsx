@@ -20,6 +20,7 @@ function AdminSidebar() {
         { to: "/admin/products", label: "Produits", icon: "fa-screwdriver-wrench" },
         { to: "/admin/stock", label: "stock", icon: "fa-tags" },
         { to: "/admin/users", label: "Utilisateurs", icon: "fa-users" },
+         { to: "/adminInvoices", label: "Factures", icon: "fa-users" },
     ];
 
     return (

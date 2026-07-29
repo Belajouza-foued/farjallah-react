@@ -27,7 +27,7 @@ function Dashboard() {
     const [orders, setOrders] = useState([]);
 
     const [stockAlerts, setStockAlerts] = useState([]);
-
+const [invoices,setInvoices]=useState([]);
 
     const token = localStorage.getItem("token");
 
@@ -100,7 +100,36 @@ const getSalesChart = useCallback(async () => {
 
 
 }, [token]); 
-        
+       const getInvoices = async()=>{
+
+ try{
+
+ const token=localStorage.getItem("token");
+
+
+ const res = await api.get("/admin/invoices",
+ {
+ headers:{
+ Authorization:`Bearer ${token}`
+ }
+ });
+
+
+ setInvoices(res.data.invoices);
+
+
+ }catch(error){
+
+ console.log(error);
+
+ }
+
+};
+useEffect(()=>{
+
+ getInvoices();
+
+},[]); 
     // =========================
     // BEST PRODUCTS
     // =========================
@@ -523,9 +552,38 @@ return (
                     </div>
 
                 </div>
+         
 
             </div>
+            
+<div className="card mt-4">
 
+  <h3>Dernières factures</h3>
+
+  {invoices.map((invoice) => (
+
+    <div key={invoice._id} className="border-bottom py-2">
+
+      <p>
+        <strong>Facture :</strong> {invoice.invoiceNumber}
+      </p>
+
+      <p>
+        <strong>Client :</strong>{" "}
+        {invoice.customer
+          ? `${invoice.customer.firstName} ${invoice.customer.lastName}`
+          : "Client non disponible"}
+      </p>
+
+      <p>
+        <strong>Total :</strong> {invoice.total} DT
+      </p>
+
+    </div>
+
+  ))}
+
+</div>
         </div>
 
     </div>

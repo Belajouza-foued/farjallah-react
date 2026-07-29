@@ -22,6 +22,8 @@ import ProductDetails from "./pages/ProductDetails";
 import Services from "./components/ServicesPage";
 import TopBar from "./components/TopBar";
 import Footer from "./components/Footer";
+import AdminInvoices from "./pages/AdminInvoices";
+import AdminDeliveryNotes from "./pages/AdminDeliveryNotes";
 
 
 function App() {
@@ -53,6 +55,11 @@ function App() {
            <Route path="/Dashboard" element={<Dashboard />}/>
            <Route path="/products/:id" element={<ProductDetails />} />
                 <Route path="/services" element={<Services />}/>
+                     <Route path="/adminInvoices" element={<AdminInvoices />}/>
+                     <Route 
+ path="/adminDeliveryNotes" 
+ element={<AdminDeliveryNotes />}
+/>
            <Route 
   path="/categorie/:slug" 
   element={<CategoryProducts />}

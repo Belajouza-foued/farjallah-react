@@ -160,6 +160,7 @@ useEffect(() => {
               <h3 className="product-tile__name">{product.name}</h3>
 
               <p className="product-tile__desc">{product.description}</p>
+                <p className="product-tile__desc">{product.location}</p>
 
               <h4 className="product-tile__ref">REF: {product.sku}</h4>
 

@@ -15,6 +15,7 @@ const [categories, setCategories] = useState([]);
     const [price, setPrice] = useState("");
     const [stock, setStock] = useState("");
     const [sku, setSku] = useState("");
+    const [location, setLocation] = useState("");
     const [category, setCategory] = useState("");
     const [images, setImages] = useState([]);
   
@@ -50,7 +51,8 @@ const [categories, setCategories] = useState([]);
             formData.append("price", price);
             formData.append("stock", stock);
             formData.append("sku", sku);
-            formData.append("category", category);
+              formData.append("location", location);
+                        formData.append("category", category);
 
             for (let i = 0; i < images.length; i++) {
                 formData.append("images", images[i]);
@@ -144,7 +146,17 @@ const [categories, setCategories] = useState([]);
                                 />
 
                             </div>
-
+<div className="mb-3">
+    <label>Emplacement</label>
+    <input
+        type="text"
+        className="form-control"
+        name="location"
+        value={location}
+       onChange={(e) => setLocation(e.target.value)}
+        placeholder="Ex : R3 ou A-R3-E2"
+    />
+</div>
                             <div className="col-md-6 mb-3">
 
                                 <label className="form-label">

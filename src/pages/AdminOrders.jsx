@@ -45,7 +45,90 @@ function AdminOrders() {
     useEffect(() => {
         fetchOrders();
     }, [fetchOrders]);
+    const createInvoice = async(orderId)=>{
 
+try{
+
+const res = await api.post(
+    `/invoices/${orderId}`,
+    {},
+    {
+        headers:{
+            Authorization:`Bearer ${token}`
+        }
+    }
+);
+
+
+console.log("FACTURE :", res.data);
+
+
+alert("Facture créée avec succès");
+
+
+// aller vers la page factures
+navigate("/adminInvoices");
+
+
+}catch(error){
+
+console.log(
+"CREATE INVOICE ERROR :",
+error.response?.data || error.message
+);
+
+}
+
+};
+// =======================
+// CREATE DELIVERY NOTE
+// =======================
+
+const createDelivery = async(orderId)=>{
+
+    try{
+
+
+        const res = await api.post(
+            `/delivery/${orderId}`,
+            {},
+            {
+                headers:{
+                    Authorization:`Bearer ${token}`
+                }
+            }
+        );
+
+
+        console.log(
+            "BON LIVRAISON :",
+            res.data
+        );
+
+
+        alert("Bon de livraison créé avec succès");
+
+
+    }catch(error){
+
+
+        console.log(
+            "CREATE DELIVERY ERROR :",
+            error.response?.data || error.message
+        );
+
+
+        alert(
+            error.response?.data?.message ||
+            "Erreur création bon de livraison"
+        );
+
+    }
+
+};
+useEffect(()=>{
+    fetchOrders();
+},[fetchOrders]);
     // UPDATE STATUS
     const updateStatus = async (id, status) => {
 
@@ -124,7 +207,10 @@ function AdminOrders() {
                                     <th>Paiement</th>
                                     <th>Total</th>
                                     <th>Status</th>
-                                    <th>Change Status</th>
+                                <th>Change Status</th>
+                                <th>
+    Facture
+</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -249,6 +335,22 @@ function AdminOrders() {
                                                 Voir
                                             </button>
                                         </td>
+                                        <td>
+
+<button
+    className="btn-invoice"
+    onClick={()=>createInvoice(order._id)}
+>
+    📄 Créer facture
+</button>
+<button
+ className="btn-delivery"
+ onClick={()=>createDelivery(order._id)}
+>
+ 🚚 Bon de livraison
+</button>
+
+</td>
 
                                     </tr>
 

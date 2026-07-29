@@ -168,6 +168,7 @@ useEffect(()=>{
                                 <th>Name</th>
                                 <th>Description</th>
                                 <th>sku</th>
+                                   <th>location</th>
                                 <th>Category</th>
                                  <th>stock</th>
                                 <th>Actions</th>
@@ -200,6 +201,7 @@ useEffect(()=>{
                                     <td>{p.name}</td>
                                       <td>{p.description}</td>
                                     <td>{p.sku}</td>
+                                      <td>{p.location}</td>
                                     <td>{p.category?.name}</td>
                                         <td>{p.stock}</td>
 
@@ -271,6 +273,16 @@ useEffect(()=>{
                                             setEditingProduct({
                                                 ...editingProduct,
                                                 description: e.target.value
+                                            })
+                                        }
+                                    />
+                                      <input
+                                        className="form-control mb-2"
+                                        value={editingProduct.location}
+                                        onChange={(e) =>
+                                            setEditingProduct({
+                                                ...editingProduct,
+                                                location: e.target.value
                                             })
                                         }
                                     />
