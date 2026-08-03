@@ -18,26 +18,62 @@ const [categories, setCategories] = useState([]);
     const [location, setLocation] = useState("");
     const [category, setCategory] = useState("");
     const [images, setImages] = useState([]);
+    const [vehicles,setVehicles]=useState([]);
+
+const [selectedVehicles,setSelectedVehicles]=useState([]);
   
-    useEffect(() => {
 
-    const fetchCategories = async () => {
 
-        try {
+const fetchCategories = async () => {
 
-            const res = await api.get("/categories");
+    try {
 
-            setCategories(res.data.categories);
+        const res = await api.get("/categories");
 
-        } catch (err) {
-            console.log(err);
-        }
+        setCategories(res.data.categories);
 
-    };
+    } catch (err) {
+
+        console.log(err);
+
+    }
+
+};
+
+
+
+
+// VEHICLES
+
+const getVehicles = async()=>{
+
+    try{
+
+        const res = await api.get("/vehicles");
+
+        setVehicles(res.data.vehicles);
+
+    }catch(error){
+
+        console.log(error);
+
+    }
+
+};
+
+
+
+
+// LOAD DATA
+
+useEffect(()=>{
 
     fetchCategories();
 
-}, []);
+    getVehicles();
+
+},[]);
+
     const handleSubmit = async (e) => {
 
         e.preventDefault();
@@ -53,6 +89,10 @@ const [categories, setCategories] = useState([]);
             formData.append("sku", sku);
               formData.append("location", location);
                         formData.append("category", category);
+                        formData.append(
+"compatibleVehicles",
+JSON.stringify(selectedVehicles)
+);
 
             for (let i = 0; i < images.length; i++) {
                 formData.append("images", images[i]);
@@ -219,6 +259,79 @@ const [categories, setCategories] = useState([]);
     ))}
 
 </select>
+<div className="vehicle-select">
+
+
+<h4>
+🚗 Véhicules compatibles
+</h4>
+
+
+{
+vehicles.map(vehicle=>(
+
+<label key={vehicle._id}>
+
+
+<input
+
+type="checkbox"
+
+value={vehicle._id}
+
+checked={
+selectedVehicles.includes(vehicle._id)
+}
+
+onChange={(e)=>{
+
+
+if(e.target.checked){
+
+
+setSelectedVehicles([
+...selectedVehicles,
+vehicle._id
+]);
+
+
+}else{
+
+
+setSelectedVehicles(
+
+selectedVehicles.filter(
+id=>id!==vehicle._id
+)
+
+);
+
+
+}
+
+
+}}
+
+
+/>
+
+
+{vehicle.brand}
+ {vehicle.model}
+ {vehicle.year}
+ -
+ {vehicle.engine}
+
+
+</label>
+
+
+))
+
+}
+
+
+</div>
 
                             </div>
 

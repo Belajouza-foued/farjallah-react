@@ -24,6 +24,7 @@ import TopBar from "./components/TopBar";
 import Footer from "./components/Footer";
 import AdminInvoices from "./pages/AdminInvoices";
 import AdminDeliveryNotes from "./pages/AdminDeliveryNotes";
+import AdminVehicles from "./pages/AdminVehicles";
 
 
 function App() {
@@ -45,8 +46,7 @@ function App() {
            <Route path="/admin" element={<AdminDashboard />} />
            <Route  path="/admin/add/product" element={<AddProduct />}/>
            <Route path="/admin/products" element={<AdminProducts />} />
-            <Route path="/admin/users" element={<AdminProducts />} />
-           <Route path="/admin/products/add" element={<AddProduct />} />
+            <Route path="/admin/users" element={<AdminProducts />} />         
            <Route path="/admin/orders" element={<AdminOrders />} />
             <Route path="/admin/stock" element={<AdminStock/>} />
             <Route path="/admin/stock/:id" element={<AdminStockDetails/>} />
@@ -56,6 +56,8 @@ function App() {
            <Route path="/products/:id" element={<ProductDetails />} />
                 <Route path="/services" element={<Services />}/>
                      <Route path="/adminInvoices" element={<AdminInvoices />}/>
+                     <Route  path="/admin/vehicles"  element={<AdminVehicles />}
+/>
                      <Route 
  path="/adminDeliveryNotes" 
  element={<AdminDeliveryNotes />}

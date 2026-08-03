@@ -3,6 +3,7 @@ import api from "../api/axios";
 import { useCart } from "../context/CartContext";
 import { useSearchParams } from "react-router-dom";
 import CategorySection from "../components/CategorySection";
+import VehicleFilter from "../components/VehicleFilter";
 import Sidebar from "../components/Sidebar";
 import "../styles/Products.css";
 
@@ -55,7 +56,24 @@ useEffect(() => {
   getProducts();
 
 }, [getProducts]);
+//filtervehicle//
+const searchByVehicle = async (vehicleId) => {
 
+    try {
+
+        const res = await api.get(
+            `/products?vehicle=${vehicleId}`
+        );
+
+        setProducts(res.data.products);
+
+    } catch (error) {
+
+        console.log(error);
+
+    }
+
+};
   // =========================
   // SEARCH SUBMIT
   // =========================
@@ -107,10 +125,10 @@ useEffect(() => {
 
   return (
   <div className="products-page">
+     <VehicleFilter onSearch={searchByVehicle} />
   <h1 className="products-page__title">Liste des Produits</h1>
-
   {/* SEARCH */}
-  <form className="products-search" onSubmit={handleSearchSubmit}>
+     <form className="products-search" onSubmit={handleSearchSubmit}>
     <input
       type="text"
       className="products-search__input"

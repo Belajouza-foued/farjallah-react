@@ -66,14 +66,19 @@ const CATEGORIES = [
   },
 
   {
-    slug: "direction",
-    label: "Direction",
+    slug: "moteurs",
+    label: "Moteurs",
     icon: "fa-solid fa-road"
   },
 
   {
     slug: "echappement",
     label: "Échappement",
+    icon: "fa-solid fa-wind"
+  },
+   {
+    slug: "batteries",
+    label: "batteries",
     icon: "fa-solid fa-wind"
   }
 

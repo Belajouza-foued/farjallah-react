@@ -28,7 +28,7 @@ const categories = [
   { name: "Freinage", slug: "freinage" },
   { name: "Suspension", slug: "suspension" },
   { name: "Éclairage", slug: "eclairage" },
-  { name: "Batterie", slug: "batterie" },
+  { name: "Batteries", slug: "batteries" },
   { name: "Refroidissement", slug: "refroidissement" },
   { name: "Transmission", slug: "transmission" },
   { name: "Direction", slug: "direction" },

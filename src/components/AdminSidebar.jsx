@@ -21,6 +21,7 @@ function AdminSidebar() {
         { to: "/admin/stock", label: "stock", icon: "fa-tags" },
         { to: "/admin/users", label: "Utilisateurs", icon: "fa-users" },
          { to: "/adminInvoices", label: "Factures", icon: "fa-users" },
+            { to: "/admin/add/product", label: "ajout Produit", icon: "fa-users" },
     ];
 
     return (

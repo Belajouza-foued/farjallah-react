@@ -39,6 +39,24 @@ const categories = [
     image: "/assets/images/mannol-1.jpg",
     icon: "fa-solid fa-oil-can",
   },
+  {
+    name: "Liquide de refroidissement",
+    slug: "refroidissement",
+    image: "/assets/images/amortissement-3.png",
+    icon: "fa-solid fa-oil-can",
+  },
+   {
+    name: "moteurs",
+    slug: "moteurs",
+    image: "/assets/images/disque-embrayage.jpg",
+    icon: "fa-solid fa-circle-notch",
+  },
+   {
+    name: "batteries",
+    slug: "batteries",
+    image: "/assets/images/battery.webp",
+    icon: "fa-solid fa-circle-notch",
+  },
 ];
 
 function CategorySection() {

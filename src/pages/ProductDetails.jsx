@@ -79,7 +79,8 @@ const addToCart = async () => {
       </h3>
     );
   }
-
+console.log("PRODUCT :", product);
+console.log("VEHICLES :", product?.compatibleVehicles);
   return (
     <div className="product-detail container py-5">
       <div className="row g-5">
@@ -138,6 +139,33 @@ const addToCart = async () => {
     ? "Indisponible"
     : "Ajouter au panier"}
 </button>
+<div className="compatible-box">
+
+    <h4>
+        🚗 Véhicules compatibles
+    </h4>
+
+
+    {
+        product?.compatibleVehicles?.map((vehicle)=>(
+
+            <div 
+            key={vehicle._id}
+            className="vehicle-item"
+            >
+
+                🚗 {vehicle.brand} {vehicle.model}
+                {" "}({vehicle.year})
+                {" - "}
+                {vehicle.engine}
+
+            </div>
+
+        ))
+    }
+
+
+</div>
 
           </div>
         </div>

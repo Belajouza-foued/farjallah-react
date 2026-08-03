@@ -1,0 +1,300 @@
+/* ==========================
+   CONTAINER
+========================== */
+
+.admin-vehicles{
+
+    padding:30px;
+
+    background:#f8f9fa;
+
+    min-height:100vh;
+
+}
+
+
+.admin-vehicles h2{
+
+    margin-bottom:25px;
+
+    color:#1f2937;
+
+    font-size:26px;
+
+}
+
+
+
+/* ==========================
+   FORM
+========================== */
+
+
+.vehicle-form{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:12px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:15px;
+
+    margin-bottom:30px;
+
+}
+
+
+
+.vehicle-form input{
+
+    padding:12px 15px;
+
+    border:1px solid #ddd;
+
+    border-radius:8px;
+
+    font-size:14px;
+
+    outline:none;
+
+}
+
+
+.vehicle-form input:focus{
+
+    border-color:#0d6efd;
+
+}
+
+
+
+
+
+/* ==========================
+   BUTTON SAVE
+========================== */
+
+
+.btn-save{
+
+    background:#198754;
+
+    color:white;
+
+    border:none;
+
+    border-radius:8px;
+
+    padding:12px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+.btn-save:hover{
+
+    background:#157347;
+
+    transform:translateY(-2px);
+
+}
+
+
+
+
+/* ==========================
+   TABLE
+========================== */
+
+
+.vehicle-table{
+
+    width:100%;
+
+    background:white;
+
+    border-collapse:collapse;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+}
+
+
+
+.vehicle-table th{
+
+    background:#212529;
+
+    color:white;
+
+    padding:14px;
+
+    text-align:left;
+
+}
+
+
+
+.vehicle-table td{
+
+    padding:14px;
+
+    border-bottom:1px solid #eee;
+
+}
+
+
+
+.vehicle-table tr:hover{
+
+    background:#f1f5f9;
+
+}
+
+
+
+
+
+/* ==========================
+   ACTION BUTTONS
+========================== */
+
+
+.btn-edit,
+.btn-delete{
+
+
+    border:none;
+
+    border-radius:7px;
+
+    padding:8px 12px;
+
+    margin:3px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+}
+
+
+
+.btn-edit{
+
+    background:#ffc107;
+
+}
+
+
+
+.btn-delete{
+
+    background:#dc3545;
+
+    color:white;
+
+}
+
+
+
+
+
+/* ==========================
+   TABLET
+========================== */
+
+
+@media(max-width:992px){
+
+
+    .vehicle-form{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+
+}
+
+
+
+
+/* ==========================
+   MOBILE
+========================== */
+
+
+@media(max-width:600px){
+
+
+    .admin-vehicles{
+
+        padding:15px;
+
+    }
+
+
+    .admin-vehicles h2{
+
+        font-size:22px;
+
+    }
+
+
+
+    .vehicle-form{
+
+        grid-template-columns:1fr;
+
+        padding:15px;
+
+    }
+
+
+
+    .vehicle-table{
+
+        display:block;
+
+        overflow-x:auto;
+
+        white-space:nowrap;
+
+    }
+
+
+
+    .vehicle-table th,
+    .vehicle-table td{
+
+        padding:10px;
+
+    }
+
+
+
+    .btn-save{
+
+        width:100%;
+
+    }
+
+
+}

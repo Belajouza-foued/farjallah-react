@@ -337,18 +337,25 @@ useEffect(()=>{
                                         </td>
                                         <td>
 
-<button
-    className="btn-invoice"
-    onClick={()=>createInvoice(order._id)}
->
-    📄 Créer facture
-</button>
-<button
- className="btn-delivery"
- onClick={()=>createDelivery(order._id)}
->
- 🚚 Bon de livraison
-</button>
+<td>
+    <div className="order-actions">
+
+        <button
+            className="btn-invoice"
+            onClick={()=>createInvoice(order._id)}
+        >
+            📄 Créer facture
+        </button>
+
+        <button
+            className="btn-delivery"
+            onClick={()=>createDelivery(order._id)}
+        >
+            🚚 Bon de livraison
+        </button>
+
+    </div>
+</td>
 
 </td>
 

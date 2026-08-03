@@ -271,11 +271,146 @@
     cursor: not-allowed;
     box-shadow: none;
 }
+/* ===========================
+   ACTIONS
+=========================== */
+
+.order-actions{
+
+    display:flex;
+
+    gap:10px;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+}
+
+
+/* ===========================
+   BOUTON FACTURE
+=========================== */
+
+.btn-invoice{
+
+    background:#198754;
+
+    color:#fff;
+
+    border:none;
+
+    border-radius:8px;
+
+    padding:5px 10px;
+
+    min-width:160px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.btn-invoice:hover{
+
+    background:#157347;
+
+    transform:translateY(-2px);
+
+}
+
+
+/* ===========================
+   BOUTON LIVRAISON
+=========================== */
+
+.btn-delivery{
+
+    background:#0d6efd;
+
+    color:#fff;
+
+    border:none;
+
+    border-radius:8px;
+
+    padding:5px 10px;
+
+    min-width:160px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.btn-delivery:hover{
+
+    background:#0b5ed7;
+
+    transform:translateY(-2px);
+
+}
+
+
+/* ===========================
+   TABLETTE
+=========================== */
+
+@media(max-width:992px){
+
+    .order-actions{
+
+        flex-direction:column;
+
+        width:100%;
+
+    }
+
+    .btn-invoice,
+    .btn-delivery{
+
+        width:100%;
+
+        min-width:unset;
+
+    }
+
+}
+
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media(max-width:576px){
+
+    .btn-invoice,
+    .btn-delivery{
+
+        font-size:12px;
+
+        padding:8px;
+
+    }
+
+}
 @media (max-width: 768px) {
     .btn-invoice {
         width: 100%;
-        padding: 12px;
-        font-size: 13px;
+        padding: 8px;
+        font-size: 12px;
         min-width: 100%;
     }
 }
