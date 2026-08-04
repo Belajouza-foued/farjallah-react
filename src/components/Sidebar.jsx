@@ -11,7 +11,7 @@ const CATEGORY_ICONS = {
   freinage: "fa-solid fa-car-burst",
   suspension: "fa-solid fa-truck-fast",
   eclairage: "fa-solid fa-lightbulb",
-  batterie: "fa-solid fa-car-battery",
+batteries: "fa-solid fa-battery-full",
   refroidissement: "fa-solid fa-snowflake",
   transmission: "fa-solid fa-gear",
   direction: "fa-solid fa-road",

@@ -3,6 +3,7 @@ import api from "../api/axios";
 import { useCart } from "../context/CartContext";
 import { useSearchParams } from "react-router-dom";
 import CategorySection from "../components/CategorySection";
+import { Link } from "react-router-dom";
 import VehicleFilter from "../components/VehicleFilter";
 import Sidebar from "../components/Sidebar";
 import "../styles/Products.css";
@@ -175,14 +176,19 @@ const searchByVehicle = async (vehicleId) => {
             </div>
 
             <div className="product-tile__body">
+              <Link 
+  to={`/categorie/${product.category?.slug}`} 
+  className="product-tile__category text-center"
+>
+  {product.category?.name}
+</Link>
               <h3 className="product-tile__name">{product.name}</h3>
 
               <p className="product-tile__desc">{product.description}</p>
                 <p className="product-tile__desc">{product.location}</p>
 
               <h4 className="product-tile__ref">REF: {product.sku}</h4>
-
-              {product.stock > 5 ? (
+                     {product.stock > 5 ? (
                 <span className="badge bg-success">En stock</span>
               ) : product.stock > 0 ? (
                 <span className="badge bg-warning text-dark">

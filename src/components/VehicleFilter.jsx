@@ -10,10 +10,8 @@ function VehicleFilter({ onSearch }) {
     const [model, setModel] = useState("");
     const [year, setYear] = useState("");
     const [engine, setEngine] = useState("");
+    const [fuel, setFuel] = useState("");
 
-    // ==========================
-    // LOAD VEHICLES
-    // ==========================
 
     useEffect(() => {
 
@@ -21,13 +19,16 @@ function VehicleFilter({ onSearch }) {
 
     }, []);
 
+
     const getVehicles = async () => {
 
         try {
 
             const res = await api.get("/vehicles");
 
-            setVehicles(res.data.vehicles);
+            console.log("API VEHICLES :", res.data);
+
+            setVehicles(res.data.vehicles || []);
 
         } catch (error) {
 
@@ -37,64 +38,91 @@ function VehicleFilter({ onSearch }) {
 
     };
 
-    // ==========================
-    // FILTERS
-    // ==========================
 
-    const brands = [...new Set(
-        vehicles.map(v => v.brand)
-    )];
+    // MARQUES
 
-    const models = [...new Set(
+    const brands = [
+        ...new Set(
+            vehicles.map(v => v.brand)
+        )
+    ];
 
-        vehicles
-            .filter(v => v.brand === brand)
-            .map(v => v.model)
 
-    )];
+    // MODELES
 
-    const years = [...new Set(
+    const models = [
+        ...new Set(
+            vehicles
+                .filter(v => v.brand === brand)
+                .map(v => v.model)
+        )
+    ];
 
-        vehicles
-            .filter(
-                v =>
+
+    // ANNEES
+
+    const years = [
+        ...new Set(
+            vehicles
+                .filter(
+                    v =>
                     v.brand === brand &&
                     v.model === model
-            )
-            .map(v => v.year)
+                )
+                .map(v => v.year)
+        )
+    ];
 
-    )];
 
-    const engines = [...new Set(
+    // MOTORISATIONS
 
-        vehicles
-            .filter(
-                v =>
+    const engines = [
+        ...new Set(
+            vehicles
+                .filter(
+                    v =>
                     v.brand === brand &&
                     v.model === model &&
                     v.year === Number(year)
-            )
-            .map(v => v.engine)
+                )
+                .map(v => v.engine)
+        )
+    ];
 
-    )];
 
-    // ==========================
-    // SEARCH
-    // ==========================
+    // CARBURANTS
+
+    const fuels = [
+        ...new Set(
+            vehicles
+                .filter(
+                    v =>
+                    v.brand === brand &&
+                    v.model === model &&
+                    v.year === Number(year) &&
+                    v.engine === engine
+                )
+              .map(v => v.fuel?.trim())
+        )
+    ];
+
 
     const handleSearch = () => {
+
 
         const vehicle = vehicles.find(
 
             v =>
-                v.brand === brand &&
-                v.model === model &&
-                v.year === Number(year) &&
-                v.engine === engine
+            v.brand === brand &&
+            v.model === model &&
+            v.year === Number(year) &&
+            v.engine === engine &&
+             v.fuel?.trim().toLowerCase() === fuel.trim().toLowerCase()
 
         );
 
-        if (!vehicle) {
+
+        if(!vehicle){
 
             alert("Véhicule introuvable");
 
@@ -102,31 +130,41 @@ function VehicleFilter({ onSearch }) {
 
         }
 
+
+        console.log("VEHICLE SELECTED :", vehicle);
+
+
         onSearch(vehicle._id);
 
     };
+
+
 
     return (
 
         <div className="vehicle-filter">
 
+
             <h3>
                 🚗 Trouver une pièce par véhicule
             </h3>
 
+
+
             <div className="vehicle-grid">
 
+
                 <select
-                    value={brand}
-                    onChange={(e) => {
+                value={brand}
+                onChange={(e)=>{
 
-                        setBrand(e.target.value);
+                    setBrand(e.target.value);
+                    setModel("");
+                    setYear("");
+                    setEngine("");
+                    setFuel("");
 
-                        setModel("");
-                        setYear("");
-                        setEngine("");
-
-                    }}
+                }}
                 >
 
                     <option value="">
@@ -134,15 +172,10 @@ function VehicleFilter({ onSearch }) {
                     </option>
 
                     {
-                        brands.map(item => (
+                        brands.map(b=>(
 
-                            <option
-                                key={item}
-                                value={item}
-                            >
-
-                                {item}
-
+                            <option key={b}>
+                                {b}
                             </option>
 
                         ))
@@ -150,16 +183,18 @@ function VehicleFilter({ onSearch }) {
 
                 </select>
 
+
+
                 <select
-                    value={model}
-                    onChange={(e) => {
+                value={model}
+                onChange={(e)=>{
 
-                        setModel(e.target.value);
+                    setModel(e.target.value);
+                    setYear("");
+                    setEngine("");
+                    setFuel("");
 
-                        setYear("");
-                        setEngine("");
-
-                    }}
+                }}
                 >
 
                     <option value="">
@@ -167,15 +202,10 @@ function VehicleFilter({ onSearch }) {
                     </option>
 
                     {
-                        models.map(item => (
+                        models.map(m=>(
 
-                            <option
-                                key={item}
-                                value={item}
-                            >
-
-                                {item}
-
+                            <option key={m}>
+                                {m}
                             </option>
 
                         ))
@@ -183,15 +213,17 @@ function VehicleFilter({ onSearch }) {
 
                 </select>
 
+
+
                 <select
-                    value={year}
-                    onChange={(e) => {
+                value={year}
+                onChange={(e)=>{
 
-                        setYear(e.target.value);
+                    setYear(e.target.value);
+                    setEngine("");
+                    setFuel("");
 
-                        setEngine("");
-
-                    }}
+                }}
                 >
 
                     <option value="">
@@ -199,15 +231,10 @@ function VehicleFilter({ onSearch }) {
                     </option>
 
                     {
-                        years.map(item => (
+                        years.map(y=>(
 
-                            <option
-                                key={item}
-                                value={item}
-                            >
-
-                                {item}
-
+                            <option key={y}>
+                                {y}
                             </option>
 
                         ))
@@ -215,25 +242,29 @@ function VehicleFilter({ onSearch }) {
 
                 </select>
 
+
+
+
                 <select
-                    value={engine}
-                    onChange={(e) => setEngine(e.target.value)}
+                value={engine}
+                onChange={(e)=>{
+
+                    setEngine(e.target.value);
+                    setFuel("");
+
+                }}
                 >
 
                     <option value="">
                         Motorisation
                     </option>
 
+
                     {
-                        engines.map(item => (
+                        engines.map(e=>(
 
-                            <option
-                                key={item}
-                                value={item}
-                            >
-
-                                {item}
-
+                            <option key={e}>
+                                {e}
                             </option>
 
                         ))
@@ -241,16 +272,45 @@ function VehicleFilter({ onSearch }) {
 
                 </select>
 
+
+
+                <select
+                value={fuel}
+                onChange={(e)=>setFuel(e.target.value)}
+                >
+
+                    <option value="">
+                        Carburant
+                    </option>
+
+
+                    {
+                        fuels.map(f=>(
+
+                            <option key={f}>
+                                {f}
+                            </option>
+
+                        ))
+                    }
+
+                </select>
+
+
+
             </div>
 
+
+
             <button
-                className="btn-search-vehicle"
-                onClick={handleSearch}
+            className="btn-search-vehicle"
+            onClick={handleSearch}
             >
 
                 🔍 Rechercher
 
             </button>
+
 
         </div>
 

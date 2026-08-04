@@ -57,6 +57,18 @@ const categories = [
     image: "/assets/images/battery.webp",
     icon: "fa-solid fa-circle-notch",
   },
+  {
+    name: "eclairages",
+    slug: "eclairages",
+    image: "/assets/images/phares-avant.jpg",
+    icon: "fa-solid fa-circle-notch",
+  },
+   {
+    name: "peintures",
+    slug: "peinture",
+    image: "/assets/images/peinture-2.png",
+    icon: "fa-solid fa-circle-notch",
+  },
 ];
 
 function CategorySection() {

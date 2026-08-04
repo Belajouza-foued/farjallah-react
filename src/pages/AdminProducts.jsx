@@ -232,116 +232,138 @@ useEffect(()=>{
                     </table>
                     </div>
 
-                    {/* ================= MODAL EDIT ================= */}
-                    {editingProduct && (
+                  {/* ================= MODAL EDIT ================= */}
+{editingProduct && (
 
-                        <div className="modal d-block"
-                            style={{ background: "rgba(0,0,0,0.5)" }}>
+    <div className="modal-edit-overlay">
 
-                            <div className="modal-dialog">
+        <div className="modal-edit-dialog">
 
-                                <div className="modal-content p-3">
+            <div className="modal-edit-content">
 
-                                    <h4>Edit Product</h4>
+                <h4 className="modal-edit__title">Modifier le produit</h4>
 
-                                    {/* IMAGE PREVIEW */}
-                                    <img
-                                        src={
-                                            editingProduct?.images?.length > 0
-                                                ? `http://localhost:5000/uploads/${editingProduct.images[0]}`
-                                                : "https://via.placeholder.com/100"
-                                        }
-                                        width="100"
-                                        className="mb-3 rounded"
-                                        alt=""
-                                    />
+                {/* IMAGE PREVIEW */}
+                <img
+                    src={
+                        editingProduct?.images?.length > 0
+                            ? `http://localhost:5000/uploads/${editingProduct.images[0]}`
+                            : "https://via.placeholder.com/100"
+                    }
+                    className="modal-edit__preview"
+                    alt=""
+                />
 
-                                    <input
-                                        className="form-control mb-2"
-                                        value={editingProduct.name}
-                                        onChange={(e) =>
-                                            setEditingProduct({
-                                                ...editingProduct,
-                                                name: e.target.value
-                                            })
-                                        }
-                                    />
-                                       <input
-                                        className="form-control mb-2"
-                                        value={editingProduct.description}
-                                        onChange={(e) =>
-                                            setEditingProduct({
-                                                ...editingProduct,
-                                                description: e.target.value
-                                            })
-                                        }
-                                    />
-                                      <input
-                                        className="form-control mb-2"
-                                        value={editingProduct.location}
-                                        onChange={(e) =>
-                                            setEditingProduct({
-                                                ...editingProduct,
-                                                location: e.target.value
-                                            })
-                                        }
-                                    />
+                <div className="modal-edit__field">
+                    <label>Nom</label>
+                    <input
+                        className="form-control"
+                        value={editingProduct.name}
+                        onChange={(e) =>
+                            setEditingProduct({
+                                ...editingProduct,
+                                name: e.target.value
+                            })
+                        }
+                    />
+                </div>
 
-                                    <input
-                                        className="form-control mb-2"
-                                        value={editingProduct.price}
-                                        onChange={(e) =>
-                                            setEditingProduct({
-                                                ...editingProduct,
-                                                price: e.target.value
-                                            })
-                                        }
-                                    />
+                <div className="modal-edit__field">
+                    <label>Description</label>
+                    <input
+                        className="form-control"
+                        value={editingProduct.description}
+                        onChange={(e) =>
+                            setEditingProduct({
+                                ...editingProduct,
+                                description: e.target.value
+                            })
+                        }
+                    />
+                </div>
 
-                                    <input
-                                        className="form-control mb-2"
-                                        value={editingProduct.stock}
-                                        onChange={(e) =>
-                                            setEditingProduct({
-                                                ...editingProduct,
-                                                stock: e.target.value
-                                            })
-                                        }
-                                    />
+                <div className="modal-edit__field">
+                    <label>Emplacement</label>
+                    <input
+                        className="form-control"
+                        value={editingProduct.location}
+                        onChange={(e) =>
+                            setEditingProduct({
+                                ...editingProduct,
+                                location: e.target.value
+                            })
+                        }
+                    />
+                </div>
 
-                                    {/* NEW IMAGES */}
-    <input
-    type="file"
-    multiple
-    className="form-control mb-2"
-    onChange={(e) => setEditImages(Array.from(e.target.files))}
-/>
-                                    <div className="d-flex justify-content-end gap-2">
+                <div className="modal-edit__row">
 
-                                        <button
-                                            className="btn btn-secondary"
-                                            onClick={() => setEditingProduct(null)}
-                                        >
-                                            Cancel
-                                        </button>
+                    <div className="modal-edit__field">
+                        <label>Prix</label>
+                        <input
+                            className="form-control"
+                            value={editingProduct.price}
+                            onChange={(e) =>
+                                setEditingProduct({
+                                    ...editingProduct,
+                                    price: e.target.value
+                                })
+                            }
+                        />
+                    </div>
 
-                                        <button
-                                            className="btn btn-success"
-                                            onClick={updateProduct}
-                                        >
-                                            Save
-                                        </button>
+                    <div className="modal-edit__field">
+                        <label>Stock</label>
+                        <input
+                            className="form-control"
+                            value={editingProduct.stock}
+                            onChange={(e) =>
+                                setEditingProduct({
+                                    ...editingProduct,
+                                    stock: e.target.value
+                                })
+                            }
+                        />
+                    </div>
 
-                                    </div>
+                </div>
 
-                                </div>
+                {/* NEW IMAGES */}
+                <div className="modal-edit__field">
+                    <label>Nouvelles images</label>
+                    <input
+                        type="file"
+                        multiple
+                        className="form-control"
+                        onChange={(e) => setEditImages(Array.from(e.target.files))}
+                    />
+                </div>
 
-                            </div>
+                <div className="modal-edit__actions">
 
-                        </div>
+                    <button
+                        className="btn-modal-cancel"
+                        onClick={() => setEditingProduct(null)}
+                    >
+                        Annuler
+                    </button>
 
-                    )}
+                    <button
+                        className="btn-modal-save"
+                        onClick={updateProduct}
+                    >
+                        Enregistrer
+                    </button>
 
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+)}
                 </div>
 
             </div>

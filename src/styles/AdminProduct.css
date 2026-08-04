@@ -280,3 +280,170 @@
 
 
 }
+/* ===== Overlay EDIT===== */
+.modal-edit-overlay{
+    position: fixed;
+    inset: 0;
+    background: rgba(11, 37, 69, .55);
+    backdrop-filter: blur(2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1050;
+    padding: 20px;
+    animation: fadeIn .2s ease;
+}
+
+@keyframes fadeIn{
+    from{ opacity: 0; }
+    to{ opacity: 1; }
+}
+
+/* ===== Dialog ===== */
+.modal-edit-dialog{
+    width: 100%;
+    max-width: 480px;
+}
+
+.modal-edit-content{
+    background: #fff;
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 20px 50px rgba(11, 37, 69, .25);
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: slideUp .25s ease;
+}
+
+@keyframes slideUp{
+    from{ transform: translateY(16px); opacity: 0; }
+    to{ transform: translateY(0); opacity: 1; }
+}
+
+/* ===== Titre ===== */
+.modal-edit__title{
+    font-size: 19px;
+    font-weight: 700;
+    color: #0B2545;
+    margin: 0 0 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #EEF0F3;
+}
+
+/* ===== Image preview ===== */
+.modal-edit__preview{
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid #EEF0F3;
+    margin-bottom: 18px;
+    display: block;
+}
+
+/* ===== Champs ===== */
+.modal-edit__field{
+    margin-bottom: 14px;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-edit__field label{
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #0B2545;
+    margin-bottom: 5px;
+    letter-spacing: .2px;
+}
+
+.modal-edit__field .form-control{
+    border: 1px solid #E2E5EA;
+    border-radius: 9px;
+    padding: 9px 13px;
+    font-size: 13.5px;
+    color: #0B2545;
+    background: #FAFBFC;
+    transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.modal-edit__field .form-control:focus{
+    border-color: #F9C400;
+    box-shadow: 0 0 0 3px rgba(249, 196, 0, .18);
+    background: #fff;
+    outline: none;
+}
+
+/* ===== Ligne prix/stock côte à côte ===== */
+.modal-edit__row{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+/* ===== Actions ===== */
+.modal-edit__actions{
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid #EEF0F3;
+}
+
+.btn-modal-cancel,
+.btn-modal-save{
+    padding: 9px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease, transform .15s ease;
+}
+
+.btn-modal-cancel{
+    background: #F1F2F5;
+    color: #5A6270;
+}
+
+.btn-modal-cancel:hover{
+    background: #E4E6EA;
+}
+
+.btn-modal-save{
+    background: #0B2545;
+    color: #fff;
+}
+
+.btn-modal-save:hover{
+    background: #F9C400;
+    color: #0B2545;
+}
+
+.btn-modal-cancel:active,
+.btn-modal-save:active{
+    transform: scale(.96);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 480px){
+    .modal-edit-content{
+        padding: 20px;
+        border-radius: 12px;
+    }
+
+    .modal-edit__row{
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .modal-edit__actions{
+        flex-direction: column-reverse;
+    }
+
+    .btn-modal-cancel,
+    .btn-modal-save{
+        width: 100%;
+        padding: 11px;
+    }
+}

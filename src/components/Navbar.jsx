@@ -36,7 +36,7 @@ const CATEGORIES = [
   },
 
   {
-    slug: "eclairage",
+    slug: "eclairages",
     label: "Éclairage",
     icon: "fa-solid fa-lightbulb"
   },
@@ -79,6 +79,11 @@ const CATEGORIES = [
    {
     slug: "batteries",
     label: "batteries",
+    icon: "fa-solid fa-wind"
+  },
+    {
+    slug: "peinture",
+    label: "peintures",
     icon: "fa-solid fa-wind"
   }
 
