@@ -243,6 +243,7 @@
     }
 }
 
+
 @media (max-width: 380px){
     .product-tile__btn{
         font-size: 10px;
@@ -402,6 +403,7 @@
     }
 }
 
+
 @media (max-width: 560px){
     .products-page__title{
         font-size: 22px;
@@ -427,4 +429,23 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
     }
+}
+@media (max-width: 768px){
+    .products-search {
+  position: relative;
+}
+
+.products-search__input {
+  width: 100%;
+  padding-right: 50px; /* Laisse de la place pour l'icône */
+}
+
+.products-search__btn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  cursor: pointer;
+}
 }

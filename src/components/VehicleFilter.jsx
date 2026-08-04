@@ -146,7 +146,8 @@ function VehicleFilter({ onSearch }) {
 
 
             <h3>
-                🚗 Trouver une pièce par véhicule
+                <i className="fa-solid fa-car me-2" style={{color:"blue"}}></i>
+            Trouver une pièce par véhicule
             </h3>
 
 
@@ -274,28 +275,24 @@ function VehicleFilter({ onSearch }) {
 
 
 
-                <select
-                value={fuel}
-                onChange={(e)=>setFuel(e.target.value)}
-                >
+            <select
+  className="fuel-select"
+  value={fuel}
+  onChange={(e)=>setFuel(e.target.value)}
+>
+  <option value="">
+    Carburant
+  </option>
 
-                    <option value="">
-                        Carburant
-                    </option>
+  {
+    fuels.map(f=>(
+      <option key={f}>
+        {f}
+      </option>
+    ))
+  }
 
-
-                    {
-                        fuels.map(f=>(
-
-                            <option key={f}>
-                                {f}
-                            </option>
-
-                        ))
-                    }
-
-                </select>
-
+</select>
 
 
             </div>

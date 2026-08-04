@@ -725,3 +725,37 @@
 @media (max-width: 360px){
   .sp-hero__title{ font-size: 28px; }
 }
+/* Tablette */
+@media (max-width: 992px) {
+  .sp-stats__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat-item {
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,.15);
+  }
+
+  .sp-stats__grid > .stat-item:nth-last-child(-n+2) {
+    border-bottom: none;
+  }
+}
+
+
+/* Mobile */
+@media (max-width: 576px) {
+  .sp-stats__grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .stat-item {
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,.15);
+    padding: 15px 8px;
+  }
+
+  .sp-stats__grid > .stat-item:last-child {
+    border-bottom: none;
+  }
+}

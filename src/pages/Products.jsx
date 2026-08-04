@@ -3,6 +3,7 @@ import api from "../api/axios";
 import { useCart } from "../context/CartContext";
 import { useSearchParams } from "react-router-dom";
 import CategorySection from "../components/CategorySection";
+import "bootstrap-icons/font/bootstrap-icons.css";
 import { Link } from "react-router-dom";
 import VehicleFilter from "../components/VehicleFilter";
 import Sidebar from "../components/Sidebar";
@@ -138,7 +139,7 @@ const searchByVehicle = async (vehicleId) => {
       onChange={(e) => setSearchInput(e.target.value)}
     />
     <button type="submit" className="products-search__btn">
-      <i className="fa-solid fa-magnifying-glass"></i>
+       <i className="bi bi-search search-responsive"></i>
     </button>
   </form>
 

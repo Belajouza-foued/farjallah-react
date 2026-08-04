@@ -1,15 +1,20 @@
+   :root {
+  --jaune: #FFC400;
+  --bleu: #0B3D91;
+  --bleu-fonce: #082C6B;
+  --bleu-clair: #1554C4;
+  --blanc: #FFFFFF;
+}
 /* =========================
    VEHICLE FILTER
 ========================= */
 
 .vehicle-filter{
-
     width:100%;
     background:#fff;
     border-radius:18px;
-    padding:30px;
-    margin:30px 0;
-
+    padding:40px;
+    margin:40px 0;
     box-shadow:0 8px 30px rgba(0,0,0,.08);
 
     border:1px solid #ececec;
@@ -108,7 +113,7 @@
 
     border-radius:14px;
 
-    background:#0d6efd;
+    background: var(--jaune);
 
     color:#fff;
 
@@ -138,6 +143,10 @@
 
     transform:scale(.98);
 
+}
+/* Carburant centré */
+.fuel-select {
+    grid-column: 2 / 4;
 }
 
 
@@ -194,6 +203,9 @@
     width:100%;
 
 }
+.fuel-select {
+    grid-column: auto;
+}
 
 }
 
@@ -219,7 +231,6 @@
 }
 
 .btn-search-vehicle{
-
     height:50px;
 
     font-size:16px;

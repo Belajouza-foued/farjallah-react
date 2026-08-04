@@ -45,7 +45,7 @@ const Sidebar = ({ isOpen, onClose, activeCategory, onSelectCategory }) => {
       <aside className={`sidebar ${isOpen ? "sidebar--open" : ""}`}>
 
         <div className="sidebar__header">
-          <h3 className="sidebar__title">Filtres</h3>
+          <h3 className="sidebar__title">Categories</h3>
           <button className="sidebar__close" onClick={onClose}>
             <i className="fa-solid fa-xmark"></i>
           </button>
@@ -53,7 +53,7 @@ const Sidebar = ({ isOpen, onClose, activeCategory, onSelectCategory }) => {
 
         {/* Catégories */}
         <div className="sidebar__section">
-          <h4 className="sidebar__section-title">Catégories</h4>
+      
 
           <ul className="sidebar__list">
             <li className={`sidebar__item ${!activeCategory ? "is-active" : ""}`}>
