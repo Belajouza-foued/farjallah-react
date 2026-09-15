@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import api from "../api/axios";
 import "../styles/AdminDeliveryNotes.css";
 
@@ -20,58 +20,50 @@ function AdminDeliveryNotes() {
     // GET DELIVERY NOTES
     // =========================
 
-    const getDeliveries = async()=>{
+  const getDeliveries = useCallback(async () => {
 
-        try{
+    try {
 
-            const res = await api.get(
-                "/delivery",
-                {
-                    headers:{
-                        Authorization:`Bearer ${token}`
-                    }
+        const res = await api.get(
+            "/delivery",
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`
                 }
-            );
-
-
-            console.log("DELIVERY RESPONSE :",res.data);
-
-
-            if(res.data.success){
-
-                setDeliveries(
-                    res.data.deliveries || []
-                );
-
             }
+        );
 
+        console.log("DELIVERY RESPONSE :", res.data);
 
-        }catch(error){
+        if (res.data.success) {
 
-            console.log(
-                "DELIVERY ERROR :",
-                error.response?.data || error.message
+            setDeliveries(
+                res.data.deliveries || []
             );
-
-        }finally{
-
-            setLoading(false);
 
         }
 
-    };
+    } catch (error) {
+
+        console.log(
+            "DELIVERY ERROR :",
+            error.response?.data || error.message
+        );
+
+    } finally {
+
+        setLoading(false);
+
+    }
+
+}, [token]);
 
 
+useEffect(() => {
 
-    useEffect(()=>{
+    getDeliveries();
 
-        getDeliveries();
-
-    },[]);
-
-
-
-
+}, [getDeliveries]);
 
     // =========================
     // SEARCH
