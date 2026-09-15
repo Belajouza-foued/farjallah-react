@@ -1,9 +1,13 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import api from "../api/axios";
 import "../styles/register.css";
+import registerCar from "../assets/images/contact-car-1.avif";
 
 function Register() {
+
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -28,19 +32,17 @@ function Register() {
 
       alert(res.data.message);
 
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        password: "",
-        role: "customer",
-      });
+      navigate("/login");
 
     } catch (err) {
-      alert(err.response?.data?.message || "Erreur");
+      alert(
+        err.response?.data?.message ||
+        "Erreur lors de l'inscription"
+      );
     }
   };
+
+
 
   return (
     <section className="register-page">
@@ -53,10 +55,11 @@ function Register() {
 
           <div className="col-lg-6 register-left">
 
-            <img
-              src="/assets/images/car-1.jpg"
-              alt="Register"
-            />
+   <img 
+  src={registerCar}
+  alt="Voiture Farjallah Auto"
+  className="contact-car-register"
+/>
 
             <h2>Bienvenue chez Farjallah Auto</h2>
 

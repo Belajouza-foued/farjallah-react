@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import api from "../api/axios";
 import "../components/css/VehicleFilter.css";
+import voyage from "../assets/images/entretien-de-la-voiture.png"
 
 function VehicleFilter({ onSearch }) {
 
@@ -144,10 +145,13 @@ function VehicleFilter({ onSearch }) {
 
         <div className="vehicle-filter">
 
-
+<img
+  src={voyage}
+  alt="voiture automobile"
+  className="product-voyage"
+/>
             <h3>
-                <i className="fa-solid fa-car me-2" style={{color:"blue"}}></i>
-            Trouver une pièce par véhicule
+                            Trouver une pièce par véhicule
             </h3>
 
 
