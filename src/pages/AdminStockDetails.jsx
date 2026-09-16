@@ -9,6 +9,7 @@ function AdminStockDetails(){
 
     const [product,setProduct] = useState(null);
     const [stock,setStock] = useState("");
+    const [location,setLocation] = useState("");
 
     const token = localStorage.getItem("token");
 const getProduct = useCallback(async()=>{
@@ -27,6 +28,7 @@ const getProduct = useCallback(async()=>{
 
         setProduct(res.data);
         setStock(res.data.stock);
+        setLocation(res.data.location || "");
 
 
     }catch(err){
@@ -56,7 +58,8 @@ useEffect(()=>{
             await api.put(
                 `/admin/stock/${id}`,
                 {
-                    stock
+                    stock,
+                    location,
                 },
                 {
                     headers:{
@@ -79,6 +82,7 @@ useEffect(()=>{
         }
 
     };
+    
 
 
 
@@ -120,15 +124,25 @@ useEffect(()=>{
             <p>
                 Stock actuel : {product.stock}
             </p>
-
-
-
-            <input
+             <input
             type="number"
             className="form-control w-25"
             value={stock}
             onChange={(e)=>setStock(e.target.value)}
             />
+             <p>
+                Emplacement : {product.location || "Non défini"}
+            </p>
+            <input
+            type="text"
+            className="form-control w-25"
+            value={location}
+            onChange={(e)=>setLocation(e.target.value)}
+            />
+
+
+
+           
 
 
 

@@ -186,9 +186,13 @@ const searchByVehicle = async (vehicleId) => {
               <h3 className="product-tile__name">{product.name}</h3>
 
               <p className="product-tile__desc">{product.description}</p>
-                <p className="product-tile__desc">{product.location}</p>
+               <div className="product-tile__meta">
+ 
 
-              <h4 className="product-tile__ref">REF: {product.sku}</h4>
+  <span className="product-tile__ref">
+    REF: {product.sku}
+  </span>
+</div>
                      {product.stock > 5 ? (
                 <span className="badge bg-success">En stock</span>
               ) : product.stock > 0 ? (

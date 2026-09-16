@@ -698,7 +698,7 @@
     padding: 7px 16px;
   }
   .site-navbar__brand-text {
-    font-size: 10px !important;
+    font-size: 15px !important;
   }
 
   .top-bar__item:nth-child(2),
@@ -741,8 +741,8 @@
   }
 
   .logo-img {
-    width: 35px;
-    height: 35px;
+    width: 45px;
+    height: 45px;
   }
 
   .site-navbar__dropdown-panel {

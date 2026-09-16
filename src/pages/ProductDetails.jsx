@@ -129,6 +129,9 @@ console.log("VEHICLES :", product?.compatibleVehicles);
             <p className="product-detail__desc">
               {product.description}
             </p>
+              <p className="product-detail__desc">
+              {product.location}
+            </p>
 
          <button
   className="product-detail__btn"

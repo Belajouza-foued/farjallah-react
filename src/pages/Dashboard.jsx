@@ -556,9 +556,9 @@ return (
 
             </div>
             
-<div className="card mt-4">
+<div className="card mt-4 text-start">
 
-  <h3>Dernières factures</h3>
+  <h3 className="text-center">Dernières factures</h3>
 
   {invoices.map((invoice) => (
 

@@ -58,3 +58,7 @@
 .span-dash {
     color: #1455D6;
 }
+.card {
+    background-color: #ececec;
+    padding: 20px;
+}

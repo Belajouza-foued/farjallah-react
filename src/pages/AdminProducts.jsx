@@ -89,6 +89,7 @@ useEffect(()=>{
               formData.append("description", editingProduct.description || "");
             formData.append("price", editingProduct.price || 0);
             formData.append("stock", editingProduct.stock || 0);
+            formData.append("location", editingProduct.location || 0);
         
             for (let i = 0; i < editImages.length; i++) {
                 formData.append("images", editImages[i]);
