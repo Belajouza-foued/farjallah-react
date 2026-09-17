@@ -641,7 +641,15 @@
     max-height: 600px;
     padding: 8px;
     margin: 4px 0 8px;
+    
   }
+  .site-navbar__category-icon {
+  font-size: 10px;
+  color: var(--nav-yellow) !important;
+  width: 20px;
+  min-width: 20px;
+  text-align: center;
+}
 
   .site-navbar__dropdown-item {
     color: var(--nav-white);

@@ -4,7 +4,103 @@
     height: 650px;
     overflow: hidden;
 }
+/*arrpw fleche*/
 
+.hero-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 45px;
+  height: 45px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: rgba(0, 0, 0, 0.35);
+  color: #ffffff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  z-index: 10;
+
+  transition: all 0.3s ease;
+}
+
+.hero-arrow:hover {
+  background: var(--nav-yellow);
+  color: #003DA5;
+  transform: translateY(-50%) scale(1.08);
+}
+
+.hero-arrow-prev {
+  left: 25px;
+}
+
+.hero-arrow-next {
+  right: 25px;
+}
+@media (max-width: 768px) {
+
+  .hero-arrow {
+    width: 36px;
+    height: 36px;
+    font-size: 12px;
+  }
+
+  .hero-arrow-prev {
+    left: 10px;
+  }
+
+  .hero-arrow-next {
+    right: 10px;
+  }
+
+  .hero-content {
+    padding: 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 28px;
+  }
+
+  .hero-content p {
+    font-size: 15px;
+  }
+
+  .hero-btn {
+    font-size: 14px;
+    padding: 10px 18px;
+  }
+}
+@media (max-width: 480px) {
+
+  .hero-arrow {
+    width: 32px;
+    height: 32px;
+    font-size: 10px;
+  }
+
+  .hero-arrow-prev {
+    left: 8px;
+  }
+
+  .hero-arrow-next {
+    right: 8px;
+  }
+
+  .hero-content h1 {
+    font-size: 22px;
+  }
+
+  .hero-content p {
+    font-size: 13px;
+  }
+}
+/*arrow*/
 .hero-slide {
   position: absolute;
   inset: 0;

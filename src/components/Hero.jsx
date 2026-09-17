@@ -31,6 +31,15 @@ function Hero() {
     }, 5000);
     return () => clearInterval(timerRef.current);
   }, []);
+    // Slide suivante
+  const nextSlide = () => {
+    setActive((prev) => (prev + 1) % SLIDES.length);
+  };
+
+  // Slide précédente
+  const prevSlide = () => {
+    setActive((prev) => (prev - 1 + SLIDES.length) % SLIDES.length);
+  };
 
   return (
     <section className="hero">
@@ -47,6 +56,25 @@ function Hero() {
           </div>
         </div>
       ))}
+         {/* Flèche précédente */}
+      <button
+        type="button"
+        className="hero-arrow hero-arrow-prev"
+        onClick={prevSlide}
+        aria-label="Slide précédente"
+      >
+        <i className="fa-solid fa-chevron-left"></i>
+      </button>
+
+      {/* Flèche suivante */}
+      <button
+        type="button"
+        className="hero-arrow hero-arrow-next"
+        onClick={nextSlide}
+        aria-label="Slide suivante"
+      >
+        <i className="fa-solid fa-chevron-right"></i>
+      </button>
 
       <div className="hero-dots">
         {SLIDES.map((slide, index) => (

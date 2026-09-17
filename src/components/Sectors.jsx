@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import "./css/Sectors.css";
 
 const SECTORS = [
@@ -69,7 +70,7 @@ function SectorCard({ sector }) {
         </div>
 
         <div className="sector-content">
-          <a href="/piece">{sector.title}</a>
+          <Link to="/piece">{sector.title}</Link>
 
           <button
             className="sector-btn"

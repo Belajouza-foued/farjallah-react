@@ -168,13 +168,13 @@ const searchByVehicle = async (vehicleId) => {
       <div className="products-grid">
         {products.map((product) => (
           <div key={product._id} className="product-tile">
-            <div className="product-tile__img-wrap">
-              <img
-                src={`http://localhost:5000/uploads/${product.images?.[0]}`}
-                alt={product.name}
-                className="product-tile__img"
-              />
-            </div>
+           <div className="product-tile__img-wrap">
+  <img
+    src={`https://farjallah-backend.onrender.com/uploads/${product.images?.[0]}`}
+    alt={product.name}
+    className="product-tile__img"
+  />
+</div>
 
             <div className="product-tile__body">
               <Link 

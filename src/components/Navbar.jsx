@@ -282,8 +282,8 @@ useEffect(() => {
           closeMenu();
         }}
       >
-        <i className={cat.icon}></i>
-        {cat.label}
+      <i className={`site-navbar__category-icon ${cat.icon}`}></i>
+{cat.label}
       </Link>
     ))}
   </div>
