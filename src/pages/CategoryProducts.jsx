@@ -63,7 +63,7 @@ useEffect(() => {
   <div className="card border-0 shadow-sm h-100 product-card">
     <div className="product-card__img-wrap">
       <img
-        src={`http://localhost:5000/uploads/${product.images?.[0]}`}
+        src={`https://farjallah-backend.onrender.com/uploads/${product.images?.[0]}`}
         className="product-card__img"
         alt={product.name}
       />

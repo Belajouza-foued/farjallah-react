@@ -105,7 +105,7 @@ useEffect(()=>{
 
 
             <img
-            src={`http://localhost:5000/uploads/${product.images[0]}`}
+            src={`https://farjallah-backend.onrender.com/uploads/${product.images[0]}`}
             width="150"
             alt={product.name}
             />

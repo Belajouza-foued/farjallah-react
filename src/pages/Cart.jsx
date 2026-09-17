@@ -151,7 +151,7 @@ const handleOrder = async () => {
                 <div className="col-md-3 text-center">
 
                   <img
-                    src={`http://localhost:5000/uploads/${item.product?.images?.[0]}`}
+                    src={`https://farjallah-backend.onrender.com/uploads/${item.product?.images?.[0]}`}
                     alt={item.product?.name}
                     className="cart-image"
                   />

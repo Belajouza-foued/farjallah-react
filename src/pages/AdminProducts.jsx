@@ -186,7 +186,7 @@ useEffect(()=>{
                                         <img
                                             src={
                                                 p?.images?.length > 0
-                                                    ? `http://localhost:5000/uploads/${p.images[0]}`
+                                                    ? `https://farjallah-backend.onrender.com/uploads/${p.images[0]}`
                                                     : "https://via.placeholder.com/60"
                                             }
                                             alt={p?.name || "product"}
@@ -248,7 +248,7 @@ useEffect(()=>{
                 <img
                     src={
                         editingProduct?.images?.length > 0
-                            ? `http://localhost:5000/uploads/${editingProduct.images[0]}`
+                            ? `https://farjallah-backend.onrender.com/uploads/${editingProduct.images[0]}`
                             : "https://via.placeholder.com/100"
                     }
                     className="modal-edit__preview"

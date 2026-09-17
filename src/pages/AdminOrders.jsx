@@ -262,7 +262,7 @@ useEffect(()=>{
                                                     className="admin-orders__product"
                                                 >
                                                     <img
-                                                        src={`http://localhost:5000/uploads/${item.product?.images?.[0]}`}
+                                                        src={`https://farjallah-backend.onrender.com/uploads/${item.product?.images?.[0]}`}
                                                         width="40"
                                                         height="40"
                                                         className="admin-orders__product-img"

@@ -89,7 +89,7 @@ console.log("VEHICLES :", product?.compatibleVehicles);
         <div className="col-md-6">
           <div className="product-detail__img-wrap">
             <img
-              src={`http://localhost:5000/uploads/${product.images?.[0]}`}
+              src={`https://farjallah-backend.onrender.com/uploads/${product.images?.[0]}`}
               alt={product.name}
               className="product-detail__img"
             />

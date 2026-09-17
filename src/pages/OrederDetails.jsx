@@ -62,7 +62,7 @@ return (
 
                         <td>
                             <img
-                                src={`http://localhost:5000/uploads/${item.product.images[0]}`}
+                                src={`https://farjallah-backend.onrender.com/uploads/${item.product.images[0]}`}
                                 width="60"
                                 alt={item.product.name}
                             />
