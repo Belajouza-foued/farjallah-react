@@ -3,7 +3,19 @@ import Sidebar from "../components/Sidebar";
 import '../styles/AdminProduct.css'
 import api from "../api/axios";
 function AdminProducts() {
+const getImageUrl = (image) => {
+    if (!image) {
+        return "https://via.placeholder.com/100";
+    }
 
+    // Nouvelle image : Cloudinary
+    if (image.startsWith("http")) {
+        return image;
+    }
+
+    // Ancienne image : dossier uploads de Render
+    return `https://farjallah-backend.onrender.com/uploads/${image}`;
+};
     const token = localStorage.getItem("token");
 const [search, setSearch] = useState("");
     const [products, setProducts] = useState([]);
@@ -182,22 +194,13 @@ useEffect(()=>{
 
                                 <tr key={p._id}>
 
-                                    <td>
-                                        <img
-                                            src={
-                                                p?.images?.length > 0
-                                                    ? `https://farjallah-backend.onrender.com/uploads/${p.images[0]}`
-                                                    : "https://via.placeholder.com/60"
-                                            }
-                                            alt={p?.name || "product"}
-                                            width="60"
-                                            height="60"
-                                            style={{
-                                                objectFit: "cover",
-                                                borderRadius: "8px"
-                                            }}
-                                        />
-                                    </td>
+                                  <td>
+    <img
+    src={getImageUrl(p?.images?.[0])}
+     className="modal-edit__preview"
+       alt={editingProduct?.name || "Image du produit"}
+    />
+</td>
 
                                     <td>{p.name}</td>
                                       <td>{p.description}</td>

@@ -123,6 +123,7 @@ const searchByVehicle = async (vehicleId) => {
     } catch (err) {
       console.log(err.response?.data || err.message);
     }
+    
   };
 
   return (
@@ -167,7 +168,7 @@ const searchByVehicle = async (vehicleId) => {
     ) : (
       <div className="products-grid">
         {products.map((product) => (
-          <div key={product._id} className="product-tile">
+                    <div key={product._id} className="product-tile">
            <div className="product-tile__img-wrap">
   <img
     src={`https://farjallah-backend.onrender.com/uploads/${product.images?.[0]}`}
