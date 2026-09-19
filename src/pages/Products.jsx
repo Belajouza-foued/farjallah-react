@@ -21,7 +21,17 @@ const Products = () => {
   const [searchInput, setSearchInput] = useState(search);
 
   const { getCart } = useCart();
+const getImageUrl = (image) => {
+    if (!image) {
+        return "https://via.placeholder.com/300";
+    }
 
+    if (image.startsWith("http")) {
+        return image;
+    }
+
+    return `https://farjallah-backend.onrender.com/uploads/${image}`;
+};
   // =========================
   // GET PRODUCTS
   // =========================
@@ -170,11 +180,11 @@ const searchByVehicle = async (vehicleId) => {
         {products.map((product) => (
                     <div key={product._id} className="product-tile">
            <div className="product-tile__img-wrap">
-  <img
-    src={`https://farjallah-backend.onrender.com/uploads/${product.images?.[0]}`}
-    alt={product.name}
+ <img
+    src={getImageUrl(product?.images?.[0])}
+    alt={product?.name || "Produit"}
     className="product-tile__img"
-  />
+/>
 </div>
 
             <div className="product-tile__body">

@@ -194,13 +194,13 @@ useEffect(()=>{
 
                                 <tr key={p._id}>
 
-                                  <td>
-    <img
-    src={getImageUrl(p?.images?.[0])}
-     className="modal-edit__preview"
-       alt={editingProduct?.name || "Image du produit"}
-    />
-</td>
+        <td>
+            <img
+                src={getImageUrl(p?.images?.[0])}
+                className="modal-edit__preview"
+                alt={p?.name || "Image du produit"}
+            />
+        </td>
 
                                     <td>{p.name}</td>
                                       <td>{p.description}</td>
@@ -248,15 +248,11 @@ useEffect(()=>{
                 <h4 className="modal-edit__title">Modifier le produit</h4>
 
                 {/* IMAGE PREVIEW */}
-                <img
-                    src={
-                        editingProduct?.images?.length > 0
-                            ? `https://farjallah-backend.onrender.com/uploads/${editingProduct.images[0]}`
-                            : "https://via.placeholder.com/100"
-                    }
-                    className="modal-edit__preview"
-                    alt=""
-                />
+               <img
+    src={getImageUrl(editingProduct?.images?.[0])}
+    className="modal-edit__preview"
+    alt={editingProduct?.name || "Image du produit"}
+/>
 
                 <div className="modal-edit__field">
                     <label>Nom</label>
