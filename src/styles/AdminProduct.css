@@ -1,287 +1,407 @@
-/* =========================
-   ADMIN PRODUCTS PAGE
-========================= */
+/* =====================================================
+   ADMIN PRODUCTS — CSS responsive (aucune modif du JSX)
+   Palette : marine #0b2545 · jaune #f9c400 · fond #f5f7fb
+   Tout est limité à .admin-products pour ne pas
+   impacter les autres pages.
+===================================================== */
 
 .admin-products {
     background: #f5f7fb;
     min-height: 100vh;
-}
-
-
-/* TITLE */
-
-.admin-products h2 {
-    font-weight: 700;
+    min-height: 100dvh;
+    padding: 0;
     color: #0b2545;
 }
 
-
-/* SEARCH BOX */
-
-.admin-search {
-    max-width: 450px;
-    margin-bottom: 25px;
+/* Bloque le scroll de la page quand le modal est ouvert */
+body:has(.modal-edit-overlay) {
+    overflow: hidden;
 }
 
-.admin-search .input-group-text {
+/* =====================================================
+   LAYOUT : sidebar / recherche / contenu
+   On réorganise la grille Bootstrap existante en CSS.
+   Mobile : sidebar → recherche → contenu (1 colonne)
+===================================================== */
+
+.admin-products > .row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+        "sidebar"
+        "search"
+        "content";
+    margin: 0;
+    --bs-gutter-x: 0;
+}
+
+.admin-products > .row > .col-md-2 {
+    grid-area: sidebar;
+    width: auto;
+    max-width: none;
+    padding: 12px 16px 0 !important;
+}
+
+.admin-products > .row > .row {
+    grid-area: search;
+    margin: 0;
+    padding: 16px 16px 0;
+}
+
+.admin-products > .row > .col-md-10 {
+    grid-area: content;
+    width: auto;
+    max-width: none;
+    padding: 16px !important;
+    min-width: 0;
+}
+
+/* Recherche */
+.admin-products > .row > .row > .col-md-5 {
+    width: 100%;
+    max-width: 480px;
+    padding: 0 !important;
+}
+
+.admin-products .input-group {
+    flex-wrap: nowrap;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(11, 37, 69, .08);
+    transition: box-shadow .2s ease;
+}
+
+.admin-products .input-group:focus-within {
+    box-shadow: 0 0 0 3px rgba(249, 196, 0, .35);
+}
+
+.admin-products .input-group-text {
     background: #0b2545;
-    color: white;
-    border: none;
+    color: #fff;
+    border: 0;
+    border-radius: 12px 0 0 12px;
+    padding: 0 16px;
 }
 
-.admin-search input {
-    border-radius: 0 8px 8px 0;
-    height: 45px;
+.admin-products .input-group .form-control {
+    height: 46px;
+    border: 0;
+    border-radius: 0 12px 12px 0;
+    background: #fff;
+    color: #0b2545;
+    font-size: 15px;
+    box-shadow: none;
 }
 
-.admin-search input:focus {
-    border-color: #1455d6;
-    box-shadow: 0 0 0 0.2rem rgba(20,85,214,.15);
+.admin-products .input-group .form-control:focus {
+    box-shadow: none;
+    outline: none;
 }
 
-
-/* TABLE CARD */
-
-.products-table-wrapper {
-
-    background:white;
-    border-radius:15px;
-    padding:20px;
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-
-}
-
-
-.table {
-
-    margin-bottom:0;
-
-}
-
-
-.table thead th {
-
-    background:#0b2545;
-    color:white;
-    font-size:14px;
-    text-transform:uppercase;
-    padding:15px;
-
-}
-
-
-.table tbody td {
-
-    vertical-align:middle;
-    padding:15px;
-
-}
-
-
-.table tbody tr:hover {
-
-    background:#f1f5ff;
-
-}
-
-
-/* PRODUCT IMAGE */
-
-.table img {
-
-    border-radius:10px;
-    object-fit:cover;
-    border:1px solid #ddd;
-
-}
-
-
-
-/* CATEGORY */
-
-.table td:nth-child(5){
-
-    color:#1455d6;
-    font-weight:600;
-
-}
-
-
-/* STOCK */
-
-.table td:nth-child(6){
-
-    font-weight:700;
-
-}
-
-
-/* BUTTONS */
-
-.btn-danger {
-
-    background:#dc3545;
-    border:none;
-    padding:6px 14px;
-    border-radius:8px;
-
-}
-
-
-.btn-warning {
-
-    background:#ffc107;
-    border:none;
-    padding:6px 14px;
-    border-radius:8px;
-
-}
-
-
-.btn-danger:hover {
-
-    opacity:.85;
-
-}
-
-
-.btn-warning:hover {
-
-    opacity:.85;
-
-}
-
-
-
-/* =========================
-   MODAL EDIT
-========================= */
-
-
-.modal {
-
-    backdrop-filter:blur(3px);
-
-}
-
-
-.modal-dialog {
-
-    max-width:500px;
-
-}
-
-
-.modal-content {
-
-    border-radius:15px;
-    border:none;
-    box-shadow:0 20px 40px rgba(0,0,0,.25);
-
-}
-
-
-.modal-content h4 {
-
-    color:#0b2545;
-    font-weight:700;
-
-}
-
-
-.modal-content input {
-
-    height:45px;
-    border-radius:8px;
-
-}
-
-
-.modal-content input:focus {
-
-    border-color:#1455d6;
-    box-shadow:none;
-
-}
-
-
-/* IMAGE PREVIEW */
-
-.modal-content img {
-
-    object-fit:cover;
-    border-radius:10px;
-
-}
-
-
-
-/* SAVE BUTTON */
-
-.btn-success {
-
-    background:#198754;
-    border:none;
-    border-radius:8px;
-    padding:8px 20px;
-
-}
-
-
-
-/* =========================
- MOBILE
-========================= */
-
-@media(max-width:768px){
-
-
-.table-responsive {
-
-    overflow-x:auto;
-
-}
-
-
+/* Titre */
 .admin-products h2 {
-
-    font-size:22px;
-
+    font-size: 22px;
+    font-weight: 700;
+    color: #0b2545;
+    margin-bottom: 16px !important;
 }
 
+/* Desktop : sidebar à gauche, recherche + contenu à droite */
+@media (min-width: 992px) {
 
-.table {
+    .admin-products > .row {
+        grid-template-columns: clamp(200px, 17vw, 260px) minmax(0, 1fr);
+        grid-template-rows: auto 1fr;
+        grid-template-areas:
+            "sidebar search"
+            "sidebar content";
+    }
 
-    font-size:13px;
+    .admin-products > .row > .col-md-2 {
+        padding: 24px 12px 0 !important;
+    }
 
+    .admin-products > .row > .row {
+        padding: 24px 24px 0;
+    }
+
+    .admin-products > .row > .col-md-10 {
+        padding: 24px !important;
+    }
+
+    .admin-products h2 {
+        font-size: 26px;
+        margin-bottom: 20px !important;
+    }
 }
 
+/* =====================================================
+   TABLEAU (desktop / tablette) — défilement horizontal
+   si l'écran est trop étroit
+===================================================== */
 
-.table img {
-
-    width:45px;
-    height:45px;
-
+.admin-products .products-table-wrapper {
+    background: #fff;
+    border-radius: 14px;
+    padding: 0;
+    box-shadow: 0 4px 18px rgba(11, 37, 69, .07);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
-
-.btn {
-
-    margin-bottom:5px;
-
+.admin-products .table {
+    --bs-table-striped-bg: #f8fafd;
+    --bs-table-hover-bg: #fff8dc;
+    margin-bottom: 0;
+    min-width: 860px;
+    font-size: 14px;
 }
 
-
-.modal-dialog {
-
-    margin:20px;
-
+.admin-products .table thead {
+    --bs-table-bg: #0b2545;
+    --bs-table-color: #fff;
 }
 
-
+.admin-products .table thead th {
+    background: #0b2545;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 14px 16px;
+    white-space: nowrap;
+    border: 0;
 }
-/* ===== Overlay EDIT===== */
-.modal-edit-overlay{
+
+.admin-products .table tbody td {
+    vertical-align: middle;
+    padding: 12px 16px;
+    border-color: #eef0f3;
+}
+
+/* Image produit (la classe modal-edit__preview est réutilisée dans le tableau) */
+.admin-products .table .modal-edit__preview {
+    width: 56px;
+    height: 56px;
+    margin: 0;
+    border-radius: 10px;
+    border: 1px solid #e6e9ef;
+    object-fit: cover;
+    display: block;
+}
+
+/* 2 : Name */
+.admin-products .table td:nth-child(2) {
+    font-weight: 600;
+}
+
+/* 3 : Description (coupée proprement) */
+.admin-products .table td:nth-child(3) {
+    max-width: 260px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #5a6270;
+}
+
+/* 4 : sku */
+.admin-products .table td:nth-child(4) {
+    font-size: 13px;
+    color: #5a6270;
+    white-space: nowrap;
+}
+
+/* 6 : Category */
+.admin-products .table td:nth-child(6) {
+    color: #1455d6;
+    font-weight: 600;
+}
+
+/* 7 : stock */
+.admin-products .table td:nth-child(7) {
+    font-weight: 700;
+}
+
+/* 8 : Actions */
+.admin-products .table td:last-child {
+    white-space: nowrap;
+}
+
+/* Boutons */
+.admin-products .table .btn {
+    border: 0;
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background .2s ease, transform .15s ease;
+}
+
+.admin-products .table .btn-danger {
+    background: #dc3545;
+    color: #fff;
+}
+
+.admin-products .table .btn-danger:hover {
+    background: #b92a39;
+    color: #fff;
+}
+
+.admin-products .table .btn-warning {
+    background: #f9c400;
+    color: #0b2545;
+}
+
+.admin-products .table .btn-warning:hover {
+    background: #e0af00;
+    color: #0b2545;
+}
+
+.admin-products .table .btn:active {
+    transform: scale(.96);
+}
+
+.admin-products .btn:focus-visible,
+.btn-modal-cancel:focus-visible,
+.btn-modal-save:focus-visible {
+    outline: 3px solid rgba(249, 196, 0, .6);
+    outline-offset: 2px;
+    box-shadow: none;
+}
+
+/* =====================================================
+   MOBILE (≤ 768px) — chaque ligne devient une carte
+   Les libellés viennent du CSS (::before), donc pas de
+   changement dans le JSX.
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .admin-products .products-table-wrapper {
+        background: transparent;
+        box-shadow: none;
+        border-radius: 0;
+        overflow: visible;
+    }
+
+    .admin-products .table {
+        --bs-table-hover-bg: transparent;
+        display: block;
+        min-width: 0;
+    }
+
+    .admin-products .table thead {
+        display: none;
+    }
+
+    .admin-products .table tbody {
+        display: grid;
+        gap: 14px;
+    }
+
+    .admin-products .table tbody tr {
+        display: grid;
+        grid-template-columns: 72px minmax(0, 1fr);
+        column-gap: 8px;
+        background: #fff;
+        border-radius: 14px;
+        padding: 14px;
+        box-shadow: 0 2px 12px rgba(11, 37, 69, .08);
+    }
+
+    .admin-products .table tbody td {
+        background: transparent;
+        box-shadow: none;
+        border: 0;
+        padding: 0;
+        max-width: none;
+        white-space: normal;
+        min-width: 0;
+    }
+
+    /* Image à gauche, nom + description à droite */
+    .admin-products .table td:nth-child(1) {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+    }
+    .td-name {
+        font-size: 10px !important;
+    }
+
+    .admin-products .table .modal-edit__preview {
+        width: 62px;
+        height: 62px;
+    }
+
+    .admin-products .table td:nth-child(2) {
+        grid-column: 2;
+        grid-row: 1;
+        align-self: end;
+        font-size: 16px;
+        line-height: 1.3;
+    }
+
+    .admin-products .table td:nth-child(3) {
+        grid-column: 2;
+        grid-row: 2;
+        align-self: start;
+        margin-top: 4px;
+        font-size: 13px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    /* sku / location / category / stock : ligne libellé + valeur */
+    .admin-products .table td:nth-child(n+4):nth-child(-n+7) {
+        grid-column: 1 / -1;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 12px;
+        padding: 9px 0;
+        border-top: 1px solid #eef0f3;
+        text-align: right;
+    }
+
+    .admin-products .table td:nth-child(4) {
+        margin-top: 12px;
+    }
+
+    .admin-products .table td:nth-child(n+4):nth-child(-n+7)::before {
+        font-size: 13px;
+        font-weight: 500;
+        color: #6b7686;
+        text-align: left;
+    }
+
+    .admin-products .table td:nth-child(4)::before { content: "SKU"; }
+    .admin-products .table td:nth-child(5)::before { content: "Emplacement"; }
+    .admin-products .table td:nth-child(6)::before { content: "Catégorie"; }
+    .admin-products .table td:nth-child(7)::before { content: "Stock"; }
+
+    /* Actions : deux boutons pleine largeur */
+    .admin-products .table td:last-child {
+        grid-column: 1 / -1;
+        display: flex;
+        gap: 10px;
+        padding-top: 12px;
+        border-top: 1px solid #eef0f3;
+    }
+
+    .admin-products .table td:last-child .btn {
+        flex: 1;
+        margin: 0 !important;
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+/* =====================================================
+   MODAL EDIT
+===================================================== */
+
+.modal-edit-overlay {
     position: fixed;
     inset: 0;
     background: rgba(11, 37, 69, .55);
@@ -294,156 +414,178 @@
     animation: fadeIn .2s ease;
 }
 
-@keyframes fadeIn{
-    from{ opacity: 0; }
-    to{ opacity: 1; }
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
 
-/* ===== Dialog ===== */
-.modal-edit-dialog{
+.modal-edit-dialog {
     width: 100%;
     max-width: 480px;
 }
 
-.modal-edit-content{
+.modal-edit-content {
     background: #fff;
     border-radius: 16px;
     padding: 28px;
     box-shadow: 0 20px 50px rgba(11, 37, 69, .25);
     max-height: 90vh;
+    max-height: 90dvh;
     overflow-y: auto;
+    overscroll-behavior: contain;
     animation: slideUp .25s ease;
 }
 
-@keyframes slideUp{
-    from{ transform: translateY(16px); opacity: 0; }
-    to{ transform: translateY(0); opacity: 1; }
+@keyframes slideUp {
+    from { transform: translateY(16px); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
 }
 
-/* ===== Titre ===== */
-.modal-edit__title{
+.modal-edit__title {
     font-size: 19px;
     font-weight: 700;
-    color: #0B2545;
+    color: #0b2545;
     margin: 0 0 18px;
     padding-bottom: 12px;
-    border-bottom: 1px solid #EEF0F3;
+    border-bottom: 1px solid #eef0f3;
 }
 
-/* ===== Image preview ===== */
-.modal-edit__preview{
+.modal-edit__preview {
     width: 90px;
     height: 90px;
     object-fit: cover;
     border-radius: 12px;
-    border: 1px solid #EEF0F3;
+    border: 1px solid #eef0f3;
     margin-bottom: 18px;
     display: block;
 }
 
-/* ===== Champs ===== */
-.modal-edit__field{
+.modal-edit__field {
     margin-bottom: 14px;
     display: flex;
     flex-direction: column;
 }
 
-.modal-edit__field label{
-    font-size: 12.5px;
+.modal-edit__field label {
+    font-size: 13px;
     font-weight: 600;
-    color: #0B2545;
+    color: #0b2545;
     margin-bottom: 5px;
-    letter-spacing: .2px;
 }
 
-.modal-edit__field .form-control{
-    border: 1px solid #E2E5EA;
+.modal-edit__field .form-control {
+    border: 1px solid #e2e5ea;
     border-radius: 9px;
     padding: 9px 13px;
-    font-size: 13.5px;
-    color: #0B2545;
-    background: #FAFBFC;
+    font-size: 14px;
+    color: #0b2545;
+    background: #fafbfc;
     transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
 }
 
-.modal-edit__field .form-control:focus{
-    border-color: #F9C400;
+.modal-edit__field .form-control:focus {
+    border-color: #f9c400;
     box-shadow: 0 0 0 3px rgba(249, 196, 0, .18);
     background: #fff;
     outline: none;
 }
 
-/* ===== Ligne prix/stock côte à côte ===== */
-.modal-edit__row{
+.modal-edit__row {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
 }
 
-/* ===== Actions ===== */
-.modal-edit__actions{
+.modal-edit__actions {
     display: flex;
     justify-content: flex-end;
     gap: 10px;
     margin-top: 20px;
     padding-top: 16px;
-    border-top: 1px solid #EEF0F3;
+    border-top: 1px solid #eef0f3;
 }
 
 .btn-modal-cancel,
-.btn-modal-save{
+.btn-modal-save {
     padding: 9px 20px;
     border: none;
     border-radius: 8px;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 600;
     cursor: pointer;
     transition: background .2s ease, color .2s ease, transform .15s ease;
 }
 
-.btn-modal-cancel{
-    background: #F1F2F5;
-    color: #5A6270;
+.btn-modal-cancel {
+    background: #f1f2f5;
+    color: #5a6270;
 }
 
-.btn-modal-cancel:hover{
-    background: #E4E6EA;
+.btn-modal-cancel:hover {
+    background: #e4e6ea;
 }
 
-.btn-modal-save{
-    background: #0B2545;
+.btn-modal-save {
+    background: #0b2545;
     color: #fff;
 }
 
-.btn-modal-save:hover{
-    background: #F9C400;
-    color: #0B2545;
+.btn-modal-save:hover {
+    background: #f9c400;
+    color: #0b2545;
 }
 
 .btn-modal-cancel:active,
-.btn-modal-save:active{
+.btn-modal-save:active {
     transform: scale(.96);
 }
 
-/* ===== Responsive ===== */
-@media (max-width: 480px){
-    .modal-edit-content{
-        padding: 20px;
-        border-radius: 12px;
+/* Petit écran : le modal devient un panneau collé en bas */
+@media (max-width: 576px) {
+
+    .modal-edit-overlay {
+        align-items: flex-end;
+        padding: 0;
     }
 
-    .modal-edit__row{
-        grid-template-columns: 1fr;
-        gap: 0;
+    .modal-edit-dialog {
+        max-width: none;
+    }
+    
+
+    .modal-edit-content {
+        border-radius: 20px 20px 0 0;
+        padding: 20px 18px calc(20px + env(safe-area-inset-bottom, 0px));
+        max-height: 92vh;
+        max-height: 92dvh;
     }
 
-    .modal-edit__actions{
+    /* 16px évite le zoom automatique sur iPhone */
+    .modal-edit__field .form-control {
+        font-size: 16px;
+    }
+
+    .modal-edit__actions {
         flex-direction: column-reverse;
     }
 
     .btn-modal-cancel,
-    .btn-modal-save{
+    .btn-modal-save {
         width: 100%;
-        padding: 11px;
+        padding: 12px;
+    }
+}
+
+@media (max-width: 360px) {
+    .modal-edit__row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .modal-edit-overlay,
+    .modal-edit-content {
+        animation: none;
     }
 }

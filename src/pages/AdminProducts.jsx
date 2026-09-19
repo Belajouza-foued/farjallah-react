@@ -202,7 +202,7 @@ useEffect(()=>{
             />
         </td>
 
-                                    <td>{p.name}</td>
+                                    <td className="td-name">{p.name}</td>
                                       <td>{p.description}</td>
                                     <td>{p.sku}</td>
                                       <td>{p.location}</td>
