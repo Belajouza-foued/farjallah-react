@@ -41,13 +41,7 @@ const CATEGORIES = [
     icon: "fa-solid fa-lightbulb"
   },
 
-  {
-    slug: "batterie",
-    label: "Batterie",
-    icon: "fa-solid fa-car-battery"
-  },
-
-  {
+   {
     slug: "refroidissement",
     label: "Refroidissement",
     icon: "fa-solid fa-snowflake"
@@ -71,22 +65,18 @@ const CATEGORIES = [
     icon: "fa-solid fa-road"
   },
 
-  {
-    slug: "echappement",
-    label: "Échappement",
-    icon: "fa-solid fa-wind"
-  },
+  
    {
     slug: "batteries",
     label: "batteries",
-    icon: "fa-solid fa-wind"
+   icon: "fa-solid fa-car-battery"
   },
-    {
-    slug: "peinture",
-    label: "peintures",
-    icon: "fa-solid fa-wind"
-  }
-
+   {
+    slug: "divers",
+    label: "Divers",
+ icon: "fa-solid fa-toolbox"
+  },
+    
 ];
 function Navbar() {
   const navigate = useNavigate();
@@ -215,7 +205,7 @@ useEffect(() => {
                 className={({ isActive }) =>
                   `site-navbar__link ${isActive ? "is-active" : ""}`
                 }
-                to="/home"
+                to="/"
                 end
                 onClick={closeMenu}
               >
@@ -227,7 +217,7 @@ useEffect(() => {
                 className={({ isActive }) =>
                   `site-navbar__link ${isActive ? "is-active" : ""}`
                 }
-                to="/"
+                to="/products"
                 end
                 onClick={closeMenu}
               >
@@ -287,7 +277,21 @@ useEffect(() => {
       </Link>
     ))}
   </div>
-
+</li>
+{/*contact*/}
+<li>
+  {user?.role !== "admin" && (
+  <NavLink
+    className={({ isActive }) =>
+      `site-navbar__link ${isActive ? "is-active" : ""}`
+    }
+    to="/contact"
+    end
+    onClick={closeMenu}
+  >
+    Contact
+  </NavLink>
+  )}
 </li>
 
 {/*dropdown*/}

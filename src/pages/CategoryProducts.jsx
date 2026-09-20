@@ -8,7 +8,17 @@ function CategoryProducts() {
   const { slug } = useParams();
 
   const [products, setProducts] = useState([]);
+const getImageUrl = (image) => {
+  if (!image) {
+    return "https://via.placeholder.com/300";
+  }
 
+  if (image.startsWith("http")) {
+    return image;
+  }
+
+  return `https://farjallah-backend.onrender.com/uploads/${image}`;
+};
 
 
 const loadProducts = useCallback(async () => {
@@ -63,7 +73,7 @@ useEffect(() => {
   <div className="card border-0 shadow-sm h-100 product-card">
     <div className="product-card__img-wrap">
       <img
-        src={`https://farjallah-backend.onrender.com/uploads/${product.images?.[0]}`}
+    src={getImageUrl(product.images?.[0])}
         className="product-card__img"
         alt={product.name}
       />

@@ -69,6 +69,12 @@ const categories = [
     image: "/assets/images/peinture-2.png",
     icon: "fa-solid fa-circle-notch",
   },
+   {
+    name: "divers",
+    slug: "divers",
+    image: "/assets/images/peinture-2.png",
+    icon: "fa-solid fa-circle-notch",
+  },
 ];
 
 function CategorySection() {

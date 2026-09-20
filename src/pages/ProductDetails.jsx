@@ -9,7 +9,17 @@ function ProductDetails() {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const token = localStorage.getItem("token");
+const getImageUrl = (image) => {
+  if (!image) {
+    return "https://via.placeholder.com/300";
+  }
 
+  if (image.startsWith("http")) {
+    return image;
+  }
+
+  return `https://farjallah-backend.onrender.com/uploads/${image}`;
+};
   useEffect(() => {
     const getProduct = async () => {
       try {
@@ -89,7 +99,7 @@ console.log("VEHICLES :", product?.compatibleVehicles);
         <div className="col-md-6">
           <div className="product-detail__img-wrap">
             <img
-              src={`https://farjallah-backend.onrender.com/uploads/${product.images?.[0]}`}
+            src={getImageUrl(product.images?.[0])}
               alt={product.name}
               className="product-detail__img"
             />

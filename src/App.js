@@ -34,11 +34,11 @@ function App() {
      <Navbar />
 
       <Routes>
-        <Route path="/" element={<Products />} /> 
-        <Route path="/register" element={<Register />} />
+         <Route path="/" element={<Home />}/>
+                <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
             <Route path="/contact" element={<Contact />}/>
-                 <Route path="/home" element={<Home />}/>
+                <Route path="/products" element={<Products />} /> 
           <Route path="/cart" element={<Cart />} />
                     <Route path="/success" element={<Success />} />
            <Route path="/admin" element={<AdminDashboard />} />

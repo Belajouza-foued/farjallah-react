@@ -9,7 +9,7 @@ const FOOTER_CATEGORIES = [
   { slug: "freinage", label: "Freinage" },
   { slug: "embrayage", label: "Embrayage" },
   { slug: "amortisseur", label: "Suspension" },
-  { slug: "batterie", label: "Batterie" },
+  { slug: "batteries", label: "Batterie" },
 ];
 
 const Footer = () => {
@@ -51,8 +51,8 @@ const Footer = () => {
           <div className="site-footer__col">
             <h4 className="site-footer__title">Liens rapides</h4>
             <ul className="site-footer__links">
-              <li><Link to="/">Produits</Link></li>
-              <li><Link to="/home">Accueil</Link></li>
+              <li><Link to="/products">Produits</Link></li>
+              <li><Link to="/">Accueil</Link></li>
               <li><Link to="/services">Services</Link></li>
               <li><Link to="/cart">Mon panier</Link></li>
               <li><Link to="/login">Connexion</Link></li>

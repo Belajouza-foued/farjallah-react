@@ -10,6 +10,17 @@ function Cart() {
     const [cart, setCart] = useState(null);
    const navigate = useNavigate();
     const token = localStorage.getItem("token");
+    const getImageUrl = (image) => {
+  if (!image) {
+    return "https://via.placeholder.com/300";
+  }
+
+  if (image.startsWith("http")) {
+    return image;
+  }
+
+  return `https://farjallah-backend.onrender.com/uploads/${image}`;
+};
  const { getCart: refreshCart } = useCart();
     const getCart = useCallback(async () => {
 
@@ -151,7 +162,7 @@ const handleOrder = async () => {
                 <div className="col-md-3 text-center">
 
                   <img
-                    src={`https://farjallah-backend.onrender.com/uploads/${item.product?.images?.[0]}`}
+src={getImageUrl(item.product?.images?.[0])}
                     alt={item.product?.name}
                     className="cart-image"
                   />
