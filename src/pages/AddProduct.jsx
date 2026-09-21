@@ -13,6 +13,7 @@ const [categories, setCategories] = useState([]);
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [price, setPrice] = useState("");
+      const [oldPrice, setOldPrice] = useState("");
     const [stock, setStock] = useState("");
     const [sku, setSku] = useState("");
     const [location, setLocation] = useState("");
@@ -85,6 +86,7 @@ useEffect(()=>{
             formData.append("name", name);
             formData.append("description", description);
             formData.append("price", price);
+            formData.append("oldPrice", oldPrice);
             formData.append("stock", stock);
             formData.append("sku", sku);
               formData.append("location", location);
@@ -182,6 +184,21 @@ JSON.stringify(selectedVehicles)
                                     className="form-control"
                                     value={price}
                                     onChange={(e) => setPrice(e.target.value)}
+                                    required
+                                />
+
+                            </div>
+                              <div className="col-md-6 mb-3">
+
+                                <label className="form-label">
+                                    Prix Ancien
+                                </label>
+
+                                <input
+                                    type="number"
+                                    className="form-control"
+                                    value={oldPrice}
+                                    onChange={(e) => setOldPrice(e.target.value)}
                                     required
                                 />
 

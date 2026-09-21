@@ -123,13 +123,9 @@
 .sector-content a {
   position: relative;
 
-  margin-bottom: 17px;
-
   color: var(--blue);
-
   font-size: 20px;
   line-height: 1.3;
-
   font-weight: 700;
 
   text-decoration: none;
@@ -152,7 +148,7 @@
   width: 35px;
   height: 3px;
 
-  margin: 9px auto 0;
+  margin: 3px auto 0;
 
   border-radius: 10px;
 
@@ -362,4 +358,41 @@
 
     font-size: 12.5px;
   }
+}
+.sector-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.sector-title-row a {
+  display: inline-block;
+  color: #003da5;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.sector-title-row a:hover {
+  color: #ffd400;
+}
+
+.sector-icon {
+  width: 27px;
+  height: 27px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.sector-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  transition: transform 0.5s ease;
+}
+
+.sector-title-row a:hover .sector-icon {
+  transform: rotate(360deg);
 }

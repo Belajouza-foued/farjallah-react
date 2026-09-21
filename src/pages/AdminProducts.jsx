@@ -100,6 +100,7 @@ useEffect(()=>{
             formData.append("name", editingProduct.name || "");
               formData.append("description", editingProduct.description || "");
             formData.append("price", editingProduct.price || 0);
+            formData.append("oldPrice", editingProduct.oldPrice || 0);
             formData.append("stock", editingProduct.stock || 0);
             formData.append("location", editingProduct.location || 0);
         
@@ -179,6 +180,8 @@ useEffect(()=>{
                             <tr>
                                 <th>Image</th>
                                 <th>Name</th>
+                                <th>Price</th>
+                                  <th>Old Price</th>
                                 <th>Description</th>
                                 <th>sku</th>
                                    <th>location</th>
@@ -204,6 +207,8 @@ useEffect(()=>{
 
                                     <td className="td-name">{p.name}</td>
                                       <td>{p.description}</td>
+                                       <td>{p.price}</td>
+                                       <td>{p.oldPrice}</td>
                                     <td>{p.sku}</td>
                                       <td>{p.location}</td>
                                     <td>{p.category?.name}</td>
@@ -281,6 +286,7 @@ useEffect(()=>{
                         }
                     />
                 </div>
+               
 
                 <div className="modal-edit__field">
                     <label>Emplacement</label>
@@ -311,6 +317,19 @@ useEffect(()=>{
                             }
                         />
                     </div>
+                     <div className="modal-edit__field">
+                    <label>Old price</label>
+                    <input
+                        className="form-control"
+                        value={editingProduct.oldPrice}
+                        onChange={(e) =>
+                            setEditingProduct({
+                                ...editingProduct,
+                                oldPrice: e.target.value
+                            })
+                        }
+                    />
+                </div>
 
                     <div className="modal-edit__field">
                         <label>Stock</label>

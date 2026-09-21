@@ -196,7 +196,17 @@ const searchByVehicle = async (vehicleId) => {
 </Link>
               <h3 className="product-tile__name">{product.name}</h3>
 
-              <p className="product-tile__desc">{product.description}</p>
+              <div className="product-tile__price">
+  {product.oldPrice && (
+    <span className="product-tile__old-price">
+      {product.oldPrice} DT
+    </span>
+  )}
+
+  <span className="product-tile__new-price">
+    {product.price} DT
+  </span>
+</div>
                <div className="product-tile__meta">
  
 

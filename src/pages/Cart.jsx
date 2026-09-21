@@ -174,8 +174,8 @@ src={getImageUrl(item.product?.images?.[0])}
                   <h5>{item.product?.name}</h5>
 
                   <p className="text-muted mb-2">
-                    Prix : {item.product?.price} $
-                  </p>
+  Prix : {item.product?.price} DT
+</p>
 
                   <span className="badge bg-success">
                     Disponible
