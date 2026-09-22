@@ -28,6 +28,8 @@
     display: flex;
     align-items: center;
     gap: 6px;
+      font-family: "Times New Roman", Times, serif;
+font-weight: bold;
     color: #0B2545;
     white-space: nowrap;
 }
@@ -115,6 +117,8 @@
     .top-bar__item {
         justify-content: center;
         color: #0B2545;
+       font-style: italic;
+        font-weight: bold !important;
                font-size: 10px;
                 position: relative;
        right: 10px;

@@ -328,8 +328,8 @@ body:has(.modal-edit-overlay) {
     }
 
     .admin-products .table .modal-edit__preview {
-        width: 62px;
-        height: 62px;
+        width: 70px;
+        height: 70px;
     }
 
     .admin-products .table td:nth-child(2) {

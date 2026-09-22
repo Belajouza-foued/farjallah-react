@@ -20,8 +20,7 @@ const CATEGORY_ICONS = {
   transmission: "fa-solid fa-gear",
   direction: "fa-solid fa-road",
   peinture: "fa-solid fa-spray-can-sparkles",
-  echappement: "fa-solid fa-wind",
-};
+ };
 
 const categories = [
   { name: "Filtres", slug: "filtre" },
@@ -37,8 +36,7 @@ const categories = [
   { name: "Transmission", slug: "transmission" },
   { name: "Direction", slug: "direction" },
   { name: "Peinture", slug: "peinture" },
-  { name: "Échappement", slug: "echappement" },
-];
+ ];
 
 const SORT_OPTIONS = [
   { value: "relevance", label: "Pertinence" },

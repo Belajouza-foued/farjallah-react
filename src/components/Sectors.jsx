@@ -108,12 +108,12 @@ function SectorCard({ sector }) {
 
         <Link to={`/categorie/${sector.slug}`}>
           {sector.title}
-          <img
+                </Link>
+                  <img
           src={sector.icons}
           alt=""
           className="sector-icon ms-2"
         />
-        </Link>
       </div>
 
       <button
