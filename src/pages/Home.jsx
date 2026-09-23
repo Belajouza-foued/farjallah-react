@@ -1,5 +1,4 @@
 import Hero from "../components/Hero";
-import Sectors from "../components/Sectors";
 import Brands from "../components/Brands";
 import OilReferences from "../components/OilReferences";
 import About from "../components/About";
