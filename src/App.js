@@ -24,6 +24,8 @@ import Footer from "./components/Footer";
 import AdminInvoices from "./pages/AdminInvoices";
 import AdminDeliveryNotes from "./pages/AdminDeliveryNotes";
 import AdminVehicles from "./pages/AdminVehicles";
+import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword";
 
 
 function App() {
@@ -55,6 +57,12 @@ function App() {
                 <Route path="/services" element={<Services />}/>
                      <Route path="/adminInvoices" element={<AdminInvoices />}/>
                      <Route  path="/admin/vehicles"  element={<AdminVehicles />}
+                    
+/>
+<Route path="/forgot-password" element={<ForgotPassword />} />
+<Route
+  path="/reset-password/:token"
+  element={<ResetPassword />}
 />
                      <Route 
  path="/adminDeliveryNotes" 

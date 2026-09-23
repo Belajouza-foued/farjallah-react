@@ -102,6 +102,13 @@ function Login() {
           Pas encore de compte ?
           <Link to="/register"> S'inscrire</Link>
         </p>
+        <div className="text-end mb-3">
+  <Link to="/forgot-password">
+    Mot de passe oublié ?
+  </Link>
+</div>
+
+
 
       </div>
 
