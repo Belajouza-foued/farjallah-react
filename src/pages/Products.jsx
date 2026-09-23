@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 import VehicleFilter from "../components/VehicleFilter";
 import Sidebar from "../components/Sidebar";
 import "../styles/Products.css";
-import { Sector } from "recharts";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
