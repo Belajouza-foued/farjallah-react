@@ -1,8 +1,23 @@
+:root {
+  --nav-navy: #0B2545;
+  --nav-blue: #003DA5;
+  --nav-blue-light: #1455D6;
+  --nav-yellow: #FFD400;
+  --nav-yellow-deep: #F2A900;
+  --nav-white: #FFFFFF;
+  --nav-ink-soft: #B9C6E0;
+  --nav-height: 76px;
+}
 .brands-section {
   padding: 70px 20px;
   background: #f8f9fa;
 }
-
+.marque-brand {
+  color: var(--nav-blue-light) !important;
+}
+.marque-brand:hover {
+  color: var(--nav-yellowgit ) !important;
+}
 .brands-section h2 {
   color: var(--navy);
   font-weight: 700;

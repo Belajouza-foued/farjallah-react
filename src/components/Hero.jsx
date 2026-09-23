@@ -52,7 +52,7 @@ function Hero() {
           <div className="hero-content">
             <h1>{slide.title}</h1>
             <p>{slide.text}</p>
-            <Link to="/" className="hero-btn">Voir plus</Link>
+            <Link to="/products" className="hero-btn">Voir plus</Link>
           </div>
         </div>
       ))}

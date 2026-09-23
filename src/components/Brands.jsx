@@ -18,7 +18,7 @@ function Brands() {
     <section className="brands-section">
       <div className="container">
         <div className="text-center mb-5">
-          <h2>Nos Marques</h2>
+          <h2 className="marque-brand">Nos Marques</h2>
         </div>
 
         <div className="brand-slider pt-4">
