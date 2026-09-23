@@ -1,13 +1,14 @@
 import React, { useEffect, useState,useCallback } from "react";
 import api from "../api/axios";
-import { useCart } from "../context/CartContext";
+import Sectors from "../components/Sectors";
+import { useCart } from "../context/CartContext"; 
 import { useSearchParams } from "react-router-dom";
-import CategorySection from "../components/CategorySection";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { Link } from "react-router-dom";
 import VehicleFilter from "../components/VehicleFilter";
 import Sidebar from "../components/Sidebar";
 import "../styles/Products.css";
+import { Sector } from "recharts";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -237,7 +238,7 @@ const searchByVehicle = async (vehicleId) => {
       </div>
     )}
   </div>
-  <CategorySection/>
+  <Sectors/>
 </div>
   );
 };

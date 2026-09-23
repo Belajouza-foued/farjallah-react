@@ -9,13 +9,14 @@ import PaintSection from "../components/PaintSection";
 import StockInfo from "../components/StockInfo";
 import WhatsappButton from "../components/WhatsappButton";
 import "../styles/theme.css"
+import CategorySection from "../components/CategorySection";
 
 function Home() {
   return (
     <>
     
       <Hero />
-      <Sectors />
+      <CategorySection/>
       <Brands />
       <OilReferences />
       <About />
